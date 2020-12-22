@@ -1,0 +1,1248 @@
+\documentclass[]{scrartcl}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{natbib}
+\usepackage[title]{appendix}
+
+\usepackage{tabularx}
+ \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+%\lhead{\bfseries{PCIC}}
+\fancyhead[L]{
+   \includegraphics[width=0.25\textwidth]{./PCICLogoHorizontal}
+}
+%\rhead{\bfseries{UVIC}}
+\fancyhead[R]{
+	\includegraphics[width=0.11\textwidth]{./uvic_logo}
+}
+
+
+
+\fancyfoot[L]{\textcolor{blue}{Pacific Climate Impacts Consortium, University of Victoria\newline PO Box 1700 STN CSC, Victoria, BC V8W 2Y2 Canada\newline {\bfseries Tel:} (250) 721-6236 {\bfseries Fax:} (250) 721-7217 {\bfseries E-mail:} climate@uvic.ca}}
+
+\rfoot{\thepage}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+%opening
+\title{\includegraphics[width=0.85\textwidth]{./PCICLogoHorizontal}\vspace{50pt}~\\Global Climate Models from the Sixth Coupled Model Inter-comparison}
+\author{}
+
+\begin{document}
+\date{} %remove date from title text
+\maketitle
+\thispagestyle{empty}
+%\begin{abstract}
+%Enclosed is a brief description and list documenting the CMIP6 global climate models recommended for use in downscaling future climate scenarios for Canada. 
+%\end{abstract}
+
+\section{Summary}
+This document provides a description of differences between two global climate model ensembles selected as inputs for statistical downscaling in Canada. Climate model simulations from the Fifth (CMIP5) and Sixth (CMIP6) Coupled Model Inter-comparison Projects are assessed using a set of derived indices calculated from simulated values of daily total precipitation, daily maximum temperature, and daily minimum temperature. Models from both CMIP ensembles are evaluated for their agreement with a station-based gridded observational dataset, and in their pattern and magnitude of projected changes for Canada. 
+
+Both CMIP5 and CMIP6 ensemble average climatologies of derived indices calculated for the past (1951-2005) display similar patterns of agreement with climatologies from the ANUSPLIN gridded observational dataset. Historical climatologies from the CMIP6 ensemble are generally slightly ($0^o$C-$1^o$C) colder than those of CMIP5. Cold biases are present in the Arctic for winter minimum temperature, and in Northern BC, Yukon, Arctic, and Atlantic Canada for summer maximum temperature. These cold biases in both ensembles extend further and grow larger for less frequent indices such as 20-year return periods. Simulated precipitation from both ensembles is greater than observed over most of Canada, particularly in the northern and eastern halves of the country. Precipitation totals are higher in CMIP6 compare to CMIP5 for most of Canada, especially for the 20-year and 50-year return period intensities.
+
+Future projections from CMIP6 display stronger responses to similar climate forcing, especially from the highest forcing pathways near the end of the $21^{st}$ century, and at higher latitudes extending into the Canadian Arctic. Future projections calculated at $1^o$C, $2^o$C, and $3^o$C of global average temperature warming display nearly identical patterns of change for both temperature and precipitation indices. Expected warming in the sub-regions of Canada at these levels is slightly higher in CMIP6 ($<0.5^o$C), while precipitation changes are effectively the same in both ensembles.
+
+Application of an objective model selection method to identify representative subsets of the CMIP6 ensemble for Canada yields a 15-model ensemble when using a fixed future period (2071-2100), and a 13-model ensemble when using $3^o$C of global temperature warming.
+
+\section{Background}
+New future climate change simulations from the latest generation of climate models now offer updated perspectives on the evolution of Earth's changing climate. Global climate model (GCM) scenarios produced as part of the Sixth Coupled Model Inter-comparison (CMIP6; \citealt{eyring_overview_2016}) are available at increased spatial resolution and with updated physical and biogeochemical components compared to previous designs. Future scenarios from these models will form part of the basis for quantifying the impacts of climate change globally in the IPCC Sixth Assessment Report. 
+
+Obtaining information about future climate impacts in Canada at provincial, regional and local scales often requires additional post-proccessing of global climate model simulations \citep{zhang_change_2019}. In a previous collaboration with Environment and Climate Change Canada (ECCC), the Pacific Climate Impacts Consortium (PCIC) statistically downscaled climate model simulations from the Fifth Coupled Model Inter-comparison (CMIP5; \citealt{taylor_overview_2011}) for Canada. More detailed representation of climatic conditions across the varied landscapes of Canada was achieved using the PCIC-developed downscaling method Bias Correction/Constructed Analogues with Quantile mapping reordering (BCCAQv2; \citealt{werner_hydrologic_2015}). Building on this previous work, the completion of Task 1 for the current project will provide statistically downscaled simulations of CMIP6 models for Canada using this same BCCAQv2 method.
+
+As described in the Task 1 Report ``Summary of CMIP6 Global Climate Models'' an ensemble of 25 GCMs has been acquired from the Earth System Grid Federation data distribution platform \citep{williams_earth_2009}. The CMIP6 ensemble obtained includes 10 realizations from CanESM5 (run numbers r1i1p2f1 through r10i1p2f1) in addition to single realizations from 24 different climate models (Appendix \ref{cmip6_list}). For comparison, the CMIP5 ensemble acquired by PCIC for downscaling previously included single realizations from 27 different GCMs (Appendix \ref{cmip5_list}). 
+
+This report describes the differences in derived precipitation and temperature variables between the existing CMIP5 and new CMIP6 climate model ensembles. Indices including annual and seasonal averages, degree day variables, annual maxima return periods, and the Climdex set of extreme indices \citep{Zhang2011} have been calculated from models in both CMIP ensembles for past and future intervals. Following \cite{zhang_change_2019} regional average comparisons are made for Canada as well as six sub-regions including British Columbia, Prairies, Ontario, Quebec, Atlantic Canada, and Northern Canada. Derived variables calculated during the past (1951-2005) are compared against station-based gridded observations (ANUSPLIN; \citealt{Hopkinson2012}, \citealt{McKenney2011}). Projections of future change are computed both for fixed future time intervals including the 2020s (2011-2041), 2050s (2041-2070), and 2080s (2071-2100), and for levels of $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. 
+
+To ensure the ensemble statistics are not skewed by the additional contributions from 10 realizations of CanESM5, ensembles of derived variables for the historical and future periods are calculated using the first available realization (r1i1p2f1) as is the case for the other models. Ensemble statistics from the GCMs presented here assign equal weighting to values from each model and individual GCMs have not been screened in any way. Within BCCAQv2, distributional differences between input climate model values and target observations are adjusted using quantile delta mapping (QDM; \citealt{cannon_bias_2015}) which acts to preserve the signal of projected change from the climate model in the resulting downscaled simulations. As a result, the patterns of projected change from the CMIP6 ensemble illustrated here will be reflected in the patterns of change exhibited by the statistcally downscaled scenarios. 
+
+\section{Future Pathways}
+The future climate state of Earth will be determined by the cumulative effects of past, present, and future societal choices. Investigating those potential future states using climate models has required the creation of forcing pathways that integrating a range of different societal decisions into information useful to those models. Among the modelling experiments of CMIP6, the Scenario Model Intercomparison Project (ScenarioMIP; \citealt{oneill_scenario_2016}) coordinates the generation of future climate model simulations resulting from potential emissions and land-use changes. Forcing pathways designed for use by CMIP6 climate models follow past experimental designs in presenting multiple future environments with differing magnitudes of climate change. The Shared Socioeconomic Pathways (SSPs; \citealt{gidden_global_2019}, \citealt{Riahi2017}) represent the latest iteration of forcing pathways, building on the Representative Concentration Pathways (RCPs; \citealt{Vuuren2011}) used in CMIP5, and the Emissions Scenarios used in CMIP3 (Special Report on Emissions Scenarios; \citealt{Nakicenovic2000}). 
+ 
+The SSPs of CMIP6 extend the RCPs from CMIP5. RCPs established forcing pathways leading to a level of stabilized global average radiative forcing at (or slightly beyond) 2100. The RCPs were not derived from socioeconomic narratives, instead developing forcing pathways required to reach end of century radiative targets. Achieving those trajectories by varying energy, land-use, economic, and other policy choices using integrated assessment models produced the general narratives associated with each RCP. In contrast, the more recent SSPs established five different future socioeconomic narratives (SSP1 - SSP5) within which various forcing pathways could be created. SSP1 and SSP5 both involve expansive human development with rapid economic growth, education, and health. The contrast between them is in how development is accomplished, with SSP1 by sustainable means and SSP5 by expanding fossil-fuel use. SSP3 and SSP4 have more negative societal outcomes of greater inequality, poorer health and education achievement, and regional disparities, all with a rapid increase in population. SSP2 represents a continuation of current practices where societal changes are less pronounced. 
+
+Forcing pathways in the ScenarioMIP experiment of CMIP6 pair the socioeconomic narratives of the SSPs with radiative stabilization targets from the RCPs through the addition of climate mitigation policies. These ScenarioMIP SSPs are divided into two Tiers. Tier 1 includes SSPs versions of the 3 RCPs employed in CMIP5 (SSP1 2.6, SSP2 4.5, and SSP5 8.5), as well as SSP3 7.0, which includes greater land-use change and aerosol emissions. Tier 2 pathways explore radiative stabilization levels between the range of the Tier 1 pathways and enable analysis of climate change under prescribed targets such as the Paris agreement \citep{oneill_scenario_2016}. While similar, the SSPs do not follow the trajectories of the RCPs exactly. Notably, the high emissions scenario SSP5 8.5 reaches greater $CO_2$ concentration at 2100 (by about 100 ppm) and higher total radiative forcing than RCP 8.5. 
+
+As outlined in the proposal and Task 1 ``Summary of CMIP6 Global Climate Models'', climate models employing Tier 1 ScenarioMIP SSPs SSP1 2.6, SSP2 4.5, and SSP5 8.5 will be used for statistical downscaling. 
+
+
+\section{Historical Comparison}
+
+The ability of both CMIP5 and CMIP6 climate models to replicate past climate in Canada is evaluated by comparing a set of derived variables from both CMIP ensembles against those from a gridded observational dataset. Indices used in the evaluation include annual and seasonal averages of temperature and precipitation, degree day variables, annual maximum and minimum return periods, and the Climdex set of extreme indices \citep{Zhang2011}. 
+
+Derived indices from observations are obtained from the ANUSPLIN gridded observational dataset (\citealt{Hopkinson2012}, \citealt{McKenney2011}) for Canada. ANUSPLIN uses thin-plate smoothing splines incorporating elevation and geographic corrections to convert quality-controlled weather station observations of daily temperature and precipitation into Canada-wide gridded dataset spanning 1951-2010. The version of ANUSPLIN used for this evaluation is the same dataset used for calibration of the existing set of downscaled CMIP5 climate scenarios, and is expected to be used again with the CMIP6 ensemble. Comparing against this dataset not only illustrates model performance relative to station-based observations, it also quantifies the magnitude of correction that will be required by downscaling applications in the remainder of Task 1.
+
+For each climate model in the CMIP ensembles and the gridded observations, average climatologies between 1951 and 2005 (to overlap with the historical model simulations of CMIP5) are calculated for all derived variables. Maps of differences between the CMIP ensemble average climatologies and the ANUSPLIN climatologies for selected variables are displayed in Figures \ref{fig:seas_tas_hist} to \ref{fig:ext_pr_hist}. Tables of selected regional averages (and CMIP ensemble ranges) for Canada and the six sub-regions are provided in Tables \ref{table:past_tas_compare} and \ref{table:past_pr_compare}. Additional figures and tables displaying historical comparisons of other derived indices can be found in Appendix \ref{added_hist}.
+
+
+\subsection{Temperature}
+Climatological patterns of difference between the two CMIP ensembles and ANUSPLIN are largely similar for temperature. Over most of Canada the CMIP6 ensemble average is slightly ($0^o$C-$1.0^o$C) colder than the CMIP5 average for seasonal average and extreme temperatures (Figures \ref{fig:seas_tas_hist} and \ref{fig:ext_tas_hist}). Daily average temperature-derived variables including degree days and growing season length are mostly similar to observed values. Where the ensemble averages differ (e.g. Cooling Degree Days, Frost Days), observed index values largely fall within the ensemble $10^{th}$ to $90^{th}$ percentile ranges. 
+
+Common to both CMIP ensembles is colder climatologies and regional values compared to ANUSPLIN in extreme minimum temperature values over much of the Canadian Arctic Archipelago, northern Quebec, and southern Rocky Mountains and coastal locations in British Columbia. Most of the Prairies, Ontario, southern Quebec, and Atlantic Canada have seasonal (Table \ref{table:past_tas_compare}) and annual minimum temperatures near or above that of ANUSPLIN. Annual maximum temperature averages (Figure \ref{fig:climdex_tas_hist}) from both CMIP ensembles display colder biases in Northern BC, Yukon, and along the outer coast lines of Canada and Hudson Bay compared to ANUSPLIN. The historical climate model simulations display substantially colder values in 20-year annual maximum daily temperature in the Canadian Arctic Archipelago, Hudson Bay, and the eastern coastline of Canada (Figure \ref{fig:ext_tas_hist}). Shifting from seasonal averages to less frequent annual or 20-year temperature events increases the area of Canada where the models are colder than the observations as well as the magnitudes those cold biases.
+
+
+\subsection{Precipitation}
+As with temperature, both CMIP ensembles have similar patterns of difference relative to the ANUSPLIN observations for precipitation. Winter and summer precipitation climatologies from both ensembles are generally wetter than observed, particularly in the northern half of Canada (Figure \ref{fig:seas_pr_hist}). Both ensembles display wet biases in winter precipitation in southwestern Yukon, the interior of BC, and areas along the $70^oN$ line of latitude. Most of the Prairies, Ontario, Quebec, and Atlantic Canada have similar, slightly higher totals in modelled seasonal precipitation as the observations (Table \ref{table:past_pr_compare}). Summer precipitation amounts are larger in CMIP6 compared to CMIP5 in all regions of Canada, while the ensemble with greater winter precipitation varies from region to region. Annual maximum single and 5-day totals (Figure \ref{fig:climdex_pr_hist}), and 20-year and 50-year annual maximum precipitation events (Figure \ref{fig:ext_pr_hist}) are more intense in CMIP6 than in CMIP5 in all regions of Canada except for the western Prairies (Table \ref{table:past_pr_compare}).  
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/seasonal_average_temperature_cmip-anusplin_comparison_1951-2005.png}
+	\caption[Tas]{Absolute differences in seasonal temperature between CMIP ensemble averages, and ANUSPLIN climatologies calculated over 1951-2005. The top row displays differences in winter average daily minimum temperature and the bottom row displays differences in summer average daily maximum temperature. The left column panels use ensemble average climatologies from CMIP5, while the right column panels use the CMIP6 ensemble average. All datasets are regridded to a $1.0^o$ regular grid prior to comparison.}
+	\label{fig:seas_tas_hist}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/climdex_annual_temperature_cmip-anusplin_comparison_1951-2005.png}
+	\caption[Tas]{Absolute differences in Climdex indices TXX (annual maximum daily maximum temperature and TNN (annual minimum daily minimum temperature) between CMIP5 and CMIP6 ensemble averages, and ANUSPLIN climatologies calculated over $1951$-$2005$. The top row displays differences in winter average daily minimum temperature and the bottom row displays differences in summer average daily maximum temperature. The left column panels use ensemble average climatologies from CMIP5, while the right column panels use the CMIP6 ensemble average. All datasets are regridded to a $1.0^o$ regular grid prior to comparison.}
+	\label{fig:climdex_tas_hist}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/extreme_temperature_cmip-anusplin_comparison_1951-2005.png}
+	\caption[Tas]{Absolute differences in extreme temperature between CMIP5 and CMIP6 ensemble averages and ANUSPLIN climatologies calculated over 1951-2005. The top row displays 20-year annual minimum daily minimum temperature and the bottom row displays 20-year annual maximum daily maximum temperature. The left column panels use ensemble average climatologies from CMIP5, while the right column panels use the CMIP6 ensemble average. All datasets are regridded to a $1.0^o$ regular grid prior to comparison.}
+	\label{fig:ext_tas_hist}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/seasonal_total_precipitation_cmip-anusplin_comparison_1951-2005.png}
+	\caption[Pr]{Same as Figure \ref{fig:seas_tas_hist}, but displaying percent differences for winter total precipitation (top row) and summer total precipitation (bottom row).}
+	\label{fig:seas_pr_hist}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/climdex_rx_precipitation_cmip-anusplin_comparison_1951-2005.png}
+	\caption[Tas]{Same as Figure \ref{fig:climdex_tas_hist} but for RX1Day (annual maximum 1-day precipitation) and RX5Day (annual maximum 5-day precipitation).}
+	\label{fig:climdex_pr_hist}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{figures/extreme_precipitation_cmip-anusplin_comparison_1951-2005.png}
+	\caption[Pr]{Same as Figure \ref{fig:ext_tas_hist}, but displaying percent differences for 20-year annual maximum daily precipitation (top row) and 50-year annual maximum daily precipitation (bottom row).}
+	\label{fig:ext_pr_hist}
+\end{figure}
+
+
+%Historical Comparison
+\begin{table}[t]
+	\caption{\textbf{Seasonal and Extreme Temperature} Past climatologies for Canada and six sub-regions of winter average daily minimum temperature, 20-year annual minimum daily temperature, summer average daily maximum and 20-year annual maximum daily temperature. Climatologies are calculated over 1951-2005 from ANUSPLIN gridded observations (Obs), the CMIP5 ensemble, and the CMIP6 ensemble. Values displayed from the CMIP ensembles include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile. All datasets are regridded to a $1.0^o$ regular grid prior to regionally averaging.}\label{table:past_tas_compare}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabular}{|l|ccc|} 
+			\hline
+			% & \textbf{Winter Precip.} & & & \textbf{Summer Prec.} & & \\\
+			\multicolumn{4}{|c|}{\textbf{Winter Minimum Temperature ($^o$C)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & -25.1 & -23.1 (-26.3, -18.8) & -23.6 (-26.7, -20.6) \\ 
+			British Columbia & -13.8 & -11 (-12.9, -8) & -11.9 (-15.4, -8.9) \\ 
+			Prairies & -22.6 & -19.5 (-22.9, -15.5) & -19.9 (-24.5, -16.2) \\ 
+			Ontario & -21.3 & -18 (-21.8, -13.7) & -17.9 (-21.3, -13.5) \\ 
+			Quebec & -23.1 & -20.5 (-23.9, -15.8) & -20.7 (-24.3, -16.3) \\ 
+			Atlantic Canada & -16.1 & -13 (-15.8, -9.2) & -13.4 (-15.9, -10.8) \\ 
+			Northern Canada & -32 & -31.3 (-36.6, -25.9) & -31.7 (-35, -28.2) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{20-Year Annual Minimum Daily Temperature ($^o$C)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & -44.3 & -44.6 (-48.4, -38.4) & -45 (-51.9, -39.9) \\ 
+			British Columbia & -37.6 & -38.2 (-42.9, -32.6) & -38.7 (-43.6, -32.9) \\ 
+			Prairies & -44.4 & -44.2 (-49.6, -37.8) & -44.3 (-51.4, -37.3) \\ 
+			Ontario & -42.2 & -39.9 (-45.6, -33.6) & -40.1 (-47.5, -32.6) \\ 
+			Quebec & -42.4 & -41.9 (-46.7, -34.6) & -42.3 (-49.8, -36.8) \\ 
+			Atlantic Canada & -35.4 & -32 (-35.8, -26.1) & -32.7 (-38, -28) \\ 
+			Northern Canada & -48.4 & -50.9 (-55.8, -45.3) & -51.2 (-57.3, -47.1) \\ 			
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Summer Maximum Temperature ($^o$C)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 15.9 & 14.7 (12.1, 17.1) & 13.9 (11.9, 15.8) \\ 
+			British Columbia & 17.4 & 16.5 (13.4, 19.1) & 16.2 (13.9, 18.5) \\ 
+			Prairies & 21.1 & 21.6 (18.4, 25.2) & 20.7 (18.3, 23.5) \\ 
+			Ontario & 21.4 & 21.8 (19.1, 25.1) & 20.6 (18.9, 23) \\ 
+			Quebec & 17 & 15.8 (13.5, 18.8) & 15 (13.2, 17.6) \\ 
+			Atlantic Canada & 17.3 & 15.1 (13, 18.2) & 14.5 (13, 16.9) \\ 
+			Northern Canada & 11 & 9.7 (7, 12.6) & 9 (5.6, 11.6) \\ 	
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{20-Year Annual Maximum Daily Temperature ($^o$C)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 29.4 & 26.7 (23.4, 29.8) & 25.7 (23.6, 27.8) \\ 
+			British Columbia & 30.3 & 28.3 (24.8, 31.5) & 28 (24.9, 31.6) \\ 
+			Prairies & 34.5 & 34.7 (29.7, 38.3) & 34 (30.8, 37) \\ 
+			Ontario & 34.8 & 35 (30.7, 38.9) & 33.8 (29.5, 38.1) \\ 
+			Quebec & 30.6 & 28.1 (24.8, 32) & 27.7 (24.7, 31.3) \\ 
+			Atlantic Canada & 30.8 & 25.5 (22.9, 29.1) & 25.3 (22.8, 28.1) \\ 
+			Northern Canada & 24.8 & 21.4 (18.1, 25.5) & 19.9 (16, 23.5) \\ 
+
+			\hline				
+		\end{tabular}
+	\end{center}
+\end{table}
+
+%Historical Comparison
+\begin{table}[t]
+	\caption{\textbf{Seasonal and Extreme Precipitation} Same as Table \ref{table:past_tas_compare}, but for winter total precipitation, summer total precipitation, 20-year annual maximum daily precipitation, and 50-year annual maximum daily precipitation. } \label{table:past_pr_compare}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabular}{|l|ccc|} 
+			\hline
+			% & \textbf{Winter Precip.} & & & \textbf{Summer Prec.} & & \\\
+			\multicolumn{4}{|c|}{\textbf{Winter Total Precipitation ($mm$)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 106 & 134 (119, 159) & 131 (114, 147) \\ 
+			British Columbia & 271 & 367 (297, 424) & 369 (322, 432) \\ 
+			Prairies & 66 & 89 (70, 108) & 81 (62, 97) \\ 
+			Ontario & 126 & 132 (109, 161) & 131 (107, 158) \\ 
+			Quebec & 153 & 161 (141, 184) & 164 (145, 181) \\ 
+			Atlantic Canada & 251 & 261 (226, 301) & 277 (241, 326) \\ 
+			Northern Canada & 43 & 64 (47, 82) & 58 (47, 70) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Summer Total Precipitation ($mm$)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 170 & 206 (178, 224) & 220 (179, 248) \\ 
+			British Columbia & 194 & 244 (189, 308) & 259 (199, 312) \\ 
+			Prairies & 190 & 204 (159, 241) & 228 (163, 279) \\ 
+			Ontario & 226 & 244 (191, 304) & 267 (219, 310) \\ 
+			Quebec & 248 & 294 (249, 324) & 306 (241, 346) \\ 
+			Atlantic Canada & 260 & 308 (278, 352) & 332 (278, 384) \\ 
+			Northern Canada & 98 & 149 (131, 173) & 154 (131, 177) \\ 				
+			\hline
+			\multicolumn{4}{|c|}{\textbf{20-Year Annual Maximum Daily Precipitation ($mm$)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 38 & 40 (32, 49) & 48 (38, 59) \\ 
+			British Columbia & 48 & 47 (38, 58) & 56 (44, 68) \\ 
+			Prairies & 48 & 43 (30, 51) & 56 (38, 72) \\ 
+			Ontario & 48 & 52 (41, 60) & 65 (50, 86) \\ 
+			Quebec & 43 & 49 (40, 59) & 56 (46, 70) \\ 
+			Atlantic Canada & 56 & 57 (49, 66) & 66 (50, 83) \\ 
+			Northern Canada & 23 & 29 (24, 37) & 33 (27, 37) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{50-Year Annual Maximum Daily Precipitation ($mm$)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 46 & 47 (36, 57) & 56 (43, 73) \\ 
+			British Columbia & 57 & 53 (42, 65) & 63 (49, 79) \\ 
+			Prairies & 58 & 52 (35, 61) & 67 (45, 89) \\ 
+			Ontario & 58 & 61 (46, 71) & 77 (56, 104) \\ 
+			Quebec & 51 & 56 (45, 68) & 65 (51, 87) \\ 
+			Atlantic Canada & 65 & 65 (54, 79) & 77 (56, 102) \\ 
+			Northern Canada & 30 & 35 (27, 44) & 39 (32, 45) \\ 
+			\hline	
+		\end{tabular}
+	\end{center}
+\end{table}
+
+%--------------------------------
+
+\clearpage
+
+\section{Projections for Canada}
+
+Future climate simulated by the CMIP6 ensemble for Canada is broadly similar to CMIP5, though with larger magnitudes of temperature and precipitation change by the end of the $21^{st}$ century for some CMIP6 models. Following the historical comparisons, the same set of derived indices are calculated from future simulations of both CMIP5 and CMIP6. Regional averages are again computed for the six sub-regions of Canada outlined in \cite{zhang_change_2019}. Projections are displayed for three 30-year climatologies (2020s, 2050s, and 2080s) for each pathway in both CMIP ensembles, as well as at three levels of global average temperature increase. 
+
+Timing of different levels of global average temperature change ($1^o$C, $2^o$C, and $3^o$C above the historical average) is assessed using annual average temperature anomalies relative to 1971-2000. Time series of temperature anomalies averaged over the globe are smoothed with a 30-year rolling average and the first year at which each integer level of warming is reached determines the anomaly timing. Climatologies are then computed using 30-year intervals centred on the years associated with each level of warming. Anomaly timing is calculated separately for each model simulation (Table \ref{table:cmip_anom_timing}). Despite the differences in models and scenarios, the average time to reach the three levels of global temperature warming is effectively the same in both ensembles. 
+
+Annual temperature (Figure \ref{fig:time_series_tas}) and precipitation (Figure \ref{fig:time_series_pr}) anomalies for Canada under CMIP6 reach higher values by 2100 in all three SSPs compared to their RCP counterparts in the CMIP5 ensemble. Stronger responses to similar climate forcing in CMIP6, especially from the highest forcing pathways and at higher latitudes extending into the Canadian Arctic, result in greater projected increases in the ensemble averages (Figure \ref{fig:tas_boxplots}). Such responses can be partially explained by the differences in forcing in the high emissions scenario, especially near the end of the $21^{st}$ century \citep{oneill_scenario_2016}. However, three specific CMIP6 models (CanESM5, HadGEM3-GC31-LL, UKESM1-0-LL) possess temperature increases above all others from CMIP6 and any of those seen from the CMIP5 ensemble and act to skew the overall CMIP6 ensemble responses upward (Figure \ref{fig:tas_scatter}, left panel).
+
+Recent studies have noted certain models within CMIP6 have greater equilibrium climate sensitivity and transient climate response particularly in the high emissions scenario SSP5 8.5 (\citealt{Tokarska2020}, \citealt{Liang2020}, \citealt{Brunner2020}). Though developing a complete explanation for these stronger responses is ongoing, the most likely causes include revised cloud physics and land surface components in the newer models leading to stronger feedbacks \citep{swart_canadian_2019}). Weighting \citep{Brunner2020}) or constraining (\citealt{Tokarska2020}, \citealt{Liang2020}) the models included when calculating CMIP6 ensemble statistics can reduce the influence of outlying projections. However, which models are removed or weighted depends which choice of metric or emergent constraint is used to categorize individual models. 
+
+Presenting future projections at levels of global warming rather than at fixed future intervals largely eliminates the issue of outlying projections in CMIP6 (Figures \ref{fig:tas_boxplots}, lower right). Ensemble averages temperature change is still about $1^o$C greater in CMIP6 than CMIP5 for corresponding future pathways, but the ensemble ranges in CMIP6 is equivalent to those of CMIP5. Calculating the future magnitudes of change this way can also remove the need for constraining or weighting models. Figure \ref{fig:tas_scatter} displays future annual temperature projections for Canada plotted against historical temperature trends estimated over 1971-2010 for both CMIP5 and CMIP6 models following \cite{Tokarska2020}. Also included are trends estimated from ANUSPLIN and  two additional gridded observational datasets: CRU TS4.04 \citep{Harris2020} and EUSTACE \citep{Brugnara2019}. In the left panel of Figure \ref{fig:tas_scatter} there is a strong relationship between historical temperature trends and the magnitude of future warming, leading to the use of historical trends as an emergent constraint (\citealt{Tokarska2020}, \citealt{Liang2020}) in constructing an ensemble. When future changes are assessed at $3^o$C of global warming, the effect is much reduced and the CMIP5 and CMIP6 ensembles resemble one another much more closely.
+
+\subsection{Temperature}
+Patterns of temperature change in Canada among the different derived variables are very similar and differ mainly in magnitude at the highest levels of change. Winter minimum temperatures (Figure \ref{fig:win_tasmin_future} are expected to increase substantially in Northern Canada by up to $15^o$C above the historical baseline. The magnitude of change in the rest of the country decreases moving from northeast to southwest, with the lowest increases of $1^o$C to $3^o$C occurring in British Columbia. Summer maximum temperatures (Figure \ref{fig:sum_tasmax_future}) display a more north-south gradient with the highest increases (up to $9^oC$) projected for the southern Prairies, and decreasing in size towards the northern edge of Canada. Similar results is seen in more extreme temperature events (Table \ref{table:bc_rp20_tas}) and in the projections calculated at levels of global temperature change (Figure \ref{fig:ext_tasmin_deg_anoms}, Tables \ref{table:deg_seas_tas} and \ref{table:deg_ext_tas}). 
+
+\subsection{Precipitation}
+As with temperature, patterns of precipitation percent change have similar characteristics in both CMIP ensembles. Relative changes in both winter and summer precipitation are projected to increase most in the northeast regions of Canada, espeically the Arctic and northern Quebec (Figures \ref{fig:win_pr_future} and \ref{fig:summer_pr_future}). Summer precipitation is expected to decrease across the southern halves of the provinces, with the greatest decreases expected in southwestern BC. Extreme precipitation (Figure \ref{fig:ext_pr20_deg_anoms}) is expected to increase across Canada with greater percent changes projected for northern Canada and Atlantic Canada. Additional figures and tables of projected precipitation and temperature changes are provided in Appendix \ref{added_proj}.
+
+
+\begin{table}[ht!]
+	\caption{\textbf{Temperature Anomaly Timing Years} Years in each model when the global average annual temperature reaches  $1^o$C, $2^o$C, and $3^o$C above the baseline period of 1971-2000. Globally average temperature time series are smoothed with a 30-year rolling mean prior to identifying the year at which each level of warming is reached.} \label{table:cmip_anom_timing}
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|l|c|c|c|}
+			\hline
+			\multicolumn{4}{|c|}{\textbf{CMIP5}} & \multicolumn{4}{|c|}{\textbf{CMIP6}} \\
+			\hline
+			Model  & $1^o$C & $2^o$C & $3^o$C & Model  & $1^o$C & $2^o$C & $3^o$C \\
+			\hline
+			ACCESS1-0 & 2024 & 2047 & 2068 & ACCESS-CM2 & 2020 & 2042 & 2059 \\ 
+			bcc-csm1-1 & 2025 & 2052 & 2075 & ACCESS-ESM1-5 & 2020 & 2044 & 2065 \\ 
+			bcc-csm1-1-m & 2020 & 2053 & 2078 & BCC-CSM2-MR & 2025 & 2050 & 2072 \\ 
+			BNU-ESM & 2017 & 2041 & 2061 & CanESM5 & 2013 & 2032 & 2048 \\ 
+			CanESM2 & 2015 & 2039 & 2060 & CNRM-CM6-1 & 2027 & 2049 & 2064 \\ 
+			CCSM4 & 2024 & 2053 & 2074 & CNRM-ESM2-1 & 2025 & 2051 & 2068 \\ 
+			CESM1-CAM5 & 2024 & 2046 & 2065 & EC-Earth3 & 2031 & 2051 & 2066 \\ 
+			CNRM-CM5 & 2028 & 2055 & 2076 & EC-Earth3-Veg & 2023 & 2047 & 2065 \\ 
+			CSIRO-Mk3-6-0 & 2029 & 2052 & 2071 & FGOALS-g3 & 2029 & 2058 & 2085 \\ 
+			FGOALS-g2 & 2028 & 2059 & 2085 & GFDL-ESM4 & 2031 & 2059 & 2081 \\ 
+			GFDL-CM3 & 2015 & 2039 & 2057 & HadGEM3-GC31-LL & 2013 & 2032 & 2050 \\ 
+			GFDL-ESM2G & 2034 & 2065 & 2085 & INM-CM4-8 & 2030 & 2057 & 2083 \\ 
+			GFDL-ESM2M & 2034 & 2066 & 2085 & INM-CM5-0 & 2029 & 2058 & 2085 \\ 
+			HadGEM2-AO & 2028 & 2050 & 2067 & IPSL-CM6A-LR & 2024 & 2046 & 2061 \\ 
+			HadGEM2-CC & 2018 & 2041 & 2057 & KACE-1-0-G & 2015 & 2037 & 2058 \\ 
+			HadGEM2-ES & 2016 & 2040 & 2058 & KIOST-ESM & 2026 & 2057 & 2085 \\ 
+			inmcm4 & 2043 & 2069 & 2085 & MIROC6 & 2032 & 2060 & 2081 \\ 
+			IPSL-CM5A-LR & 2019 & 2042 & 2061 & MIROC-ES2L & 2028 & 2054 & 2076 \\ 
+			IPSL-CM5A-MR & 2020 & 2044 & 2061 & MPI-ESM1-2-HR & 2033 & 2062 & 2083 \\ 
+			MIROC-ESM & 2021 & 2042 & 2062 & MPI-ESM1-2-LR & 2034 & 2061 & 2082 \\ 
+			MIROC-ESM-CHEM & 2019 & 2041 & 2059 & MRI-ESM2-0 & 2022 & 2047 & 2070 \\ 
+			MIROC5 & 2028 & 2056 & 2080 & NESM3 & 2017 & 2040 & 2060 \\ 
+			MPI-ESM-LR & 2024 & 2051 & 2073 & NorESM2-LM & 2030 & 2059 & 2080 \\ 
+			MPI-ESM-MR & 2026 & 2053 & 2074 & NorESM2-MM & 2030 & 2058 & 2079 \\ 
+			MRI-CGCM3 & 2036 & 2060 & 2084 & UKESM1-0-LL & 2013 & 2032 & 2047 \\ 
+			NorESM1-M & 2029 & 2058 & 2082 &  &  &  &  \\ 
+			NorESM1-ME & 2029 & 2056 & 2078 &  &  &  &  \\ 
+			Average & 2025 & 2051 & 2071 & Average & 2025 & 2050 & 2070 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/canada_boundary.average.tas.anomalies.cmip.comparison.1971-2000.png}
+	\caption[TAS]{Annual average temperature anomalies for Canada for CMIP6 (top) and CMIP5 (bottom). Absolute anomalies relative to 1971-2000 for each GCM are displayed along with the ensemble average in bold.}
+	\label{fig:time_series_tas}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/canada_boundary.average.pr.anomalies.cmip.comparison.1971-2000.png}
+	\caption[Pr]{Same as Figure \ref{fig:time_series_tas}, but for annual total precipitation anomalies in percent.}
+	\label{fig:time_series_pr}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/canada_boundary.average.temperature.boxplots.cmip.png}
+	\caption[Tas]{Projected changes in annual average temperatures for Canada from CMIP5 and CMIP6 both for fixed future intervals (2020s, 2050s, 2080s), and for three levels of future warming ($1^o$C, $2^o$C, and $3^o$C). }
+	\label{fig:tas_boxplots}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/cmip5_cmip6_tas_proj_change_vs_trends_base_res_canada_1971-2010_2.png}
+	\caption[Tas]{Historial trends and projected changes in annual average temperatures for Canada from CMIP5 and CMIP6 both at a fixed future interval (2071-2100, following SSP2 4.5), and at $3^o$C of global future warming. Projected changes are calculated relative to 1971-2000 and historical trends are estimated over 1971-2010. Models with stronger climate responses are indicated in red (CanESM5) and blue (UKESM1-0-LL, HadGEM3-GC31-LL).}
+	\label{fig:tas_scatter}
+\end{figure}
+
+%\begin{figure}[ht!]
+%	\centering
+%	\includegraphics[width=0.85\linewidth]{figures/northern_canada.precip.temperature.scatterplots.cmip.png}
+%	\caption[Tas]{Projected changes in annual average precipitation ($\%$) and annual average temperature ($^o$C) for Northern Canada. Projections are displayed from CMIP5 and CMIP6 both for fixed future intervals (2020s, 2050s, 2080s), and for three levels of future warming ($1^o$C, $2^o$C, and $3^o$C). }
+%	\label{fig:tas_pr_scatterplots}
+%\end{figure}
+
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/winter_average_tasmin_absolute_changes_cmip.png}
+	\caption[Pr]{Projected absolute changes in average winter minimum temperature from both CMIP ensembles for the 2080s and 2050s. Ensemble average future changes relative to 1971-2000 climatology are displayed from RCP 2.6 (top row) and RCP8.5 (third row) from CMIP5, and SSP1 2.6 (second row) and SSP5 8.5 (fourth row) from CMIP6.}
+	\label{fig:win_tasmin_future}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/summer_average_tasmax_absolute_changes_cmip.png}
+	\caption[Pr]{Same as Figure \ref{fig:win_tasmin_future} but for summer average maximum temperature.}
+	\label{fig:sum_tasmax_future}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_annual_average_tasmin_rp20_absolute_changes_cmip.png}
+	\caption[Tas]{Projected absolute changes in 20-year annual minimum daily minimum temperature from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:ext_tasmin_deg_anoms}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/winter_average_precip_percent_changes_cmip.png}
+	\caption[Pr]{Projected percent changes in average winter total precipitation from both CMIP ensembles for the 2080s and 2050s. Ensemble average future changes relative to 1971-2000 climatology are displayed from RCP 2.6 (top row) and RCP8.5 (third row) from CMIP5, and SSP1 2.6 (second row) and SSP5 8.5 (fourth row) from CMIP6.}
+	\label{fig:win_pr_future}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/summer_average_precip_percent_changes_cmip.png}
+	\caption[Pr]{Same as Figure \ref{fig:win_pr_future} but for average summer total precipitation.}
+	\label{fig:summer_pr_future}
+\end{figure}
+
+
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_annual_average_pr_rp20_percent_changes_cmip.png}
+	\caption[Pr]{Projected absolute changes in 20-year annual maximum daily precipitation from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:ext_pr20_deg_anoms}
+\end{figure}
+
+
+
+%Extreme Temperature
+\begin{table}[t]
+	\caption{\textbf{Extreme Temperature} Projected absolute changes of 20-year annual maximum and annual minimum temperature for Canada and the sub-regions of Canada. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:bc_rp20_tas}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{20-Year} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Max Temp}                & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 1.9 (1.1, 2.8) & 1.9 (0.8, 3) & 2.7 (1.3, 4.3) & 2.7 (1.2, 4.8) \\ 
+			British Columbia & 1.8 (1.2, 2.9) & 1.8 (0.8, 3.1) & 2.4 (1.1, 4) & 2.6 (1.2, 4.9) \\ 
+			Prairies & 2.1 (1, 3.4) & 2 (0.6, 3.5) & 2.8 (1, 5.1) & 2.6 (1, 5.5) \\ 
+			Ontario & 2.1 (0.4, 4.1) & 2 (0.8, 3.3) & 3 (1.3, 5.4) & 2.6 (0.9, 4.3) \\ 
+			Quebec & 1.9 (0.6, 3.7) & 1.9 (0.8, 3.5) & 2.8 (1.7, 4.8) & 2.7 (1.2, 4.7) \\ 
+			Atlantic Canada & 1.8 (1, 3.1) & 1.8 (0.9, 2.9) & 2.7 (1.3, 4.7) & 2.7 (1.5, 4.5) \\ 
+			Northern Canada & 1.9 (0.8, 2.5) & 1.9 (0.6, 2.8) & 2.6 (1.2, 5) & 2.8 (1.3, 5.1) \\ 
+			\hline
+			\textbf{20-Year} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Max Temp}			& 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 3.8 (1.7, 5.5) & 6.2 (2.9, 8.7) & 3.2 (2.7, 6.3) & 7.3 (4.4, 10) \\ 
+			British Columbia & 4 (2.2, 5.8) & 6.2 (3.8, 9.1) & 3.2 (2.4, 6.7) & 7.3 (4, 11.2) \\ 
+			Prairies & 4.3 (2.1, 6.5) & 6.8 (3.2, 9.9) & 3.3 (2.7, 7.7) & 7.8 (5.3, 12) \\ 
+			Ontario & 4.2 (2.6, 6.3) & 7 (3.9, 9.8) & 3 (2.4, 6.2) & 7.4 (4.6, 10) \\ 
+			Quebec & 3.8 (1.9, 6.5) & 6.7 (4.3, 10.3) & 3.2 (2.5, 6.8) & 7.2 (3.9, 10.3) \\ 
+			Atlantic Canada & 3.6 (2.2, 5.7) & 5.9 (4, 8.1) & 2.9 (2.2, 6) & 6.7 (3.9, 9.4) \\ 
+			Northern Canada & 3.5 (1.5, 5) & 5.8 (2, 8) & 3.3 (2.3, 6.8) & 7.2 (3.8, 10.6) \\ 
+			\hline
+			\hline
+			\textbf{20-Year} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Min Temp} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 4 (2.7, 5.8) & 4.3 (2.9, 6.1) & 3.2 (-2.8, 6.7) & 3.2 (-3.7, 6.9) \\ 
+			British Columbia & 3.7 (2, 5.4) & 3.8 (1.6, 5.6) & 2.6 (0, 5.1) & 3 (-0.3, 5.3) \\ 
+			Prairies & 3.6 (1.9, 5.7) & 3.9 (2.7, 5.8) & 2.9 (-2.1, 6.1) & 2.8 (-2.6, 5.7) \\ 
+			Ontario & 4.1 (2.9, 6.3) & 4.3 (2.8, 6.5) & 2.9 (-4.8, 7) & 2.9 (-4.7, 6.9) \\ 
+			Quebec & 4.5 (2.7, 7) & 4.6 (2.5, 7.5) & 3.5 (-4.3, 8.3) & 3.5 (-5.7, 8.3) \\ 
+			Atlantic Canada & 4.4 (2.5, 6.4) & 4.5 (1.9, 7.4) & 3.4 (-5.4, 7.7) & 3.5 (-4.2, 8.5) \\ 
+			Northern Canada & 4.1 (3, 5.1) & 4.3 (2.8, 5.8) & 3.4 (-1.6, 6.9) & 3.3 (-3.4, 7.4) \\ 
+			\hline
+			\textbf{20-Year} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Min Temp} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 6.9 (5.4, 8.5) & 12 (9, 15.9) & 7.3 (4.9, 11.1) & 12.8 (8.1, 18.2) \\ 
+			British Columbia & 6.2 (4.1, 8.3) & 10.4 (7.6, 13) & 5.6 (3.4, 7.6) & 9.8 (6.7, 13.6) \\ 
+			Prairies & 6.3 (4.5, 8.7) & 11.1 (8, 14.5) & 6.4 (4.4, 9.3) & 11.2 (7.1, 15.6) \\ 
+			Ontario & 6.9 (5.2, 9.2) & 12.1 (9.4, 16.6) & 7.7 (5.2, 12.3) & 13.2 (8.2, 19.8) \\ 
+			Quebec & 7.5 (5, 9.9) & 13.3 (9.5, 18.2) & 8.2 (5.1, 13.4) & 14.4 (9.5, 20.8) \\ 
+			Atlantic Canada & 7.3 (4.6, 9.6) & 12.4 (9.1, 15.7) & 7.9 (5.1, 12.3) & 13.3 (9.2, 18.8) \\ 
+			Northern Canada & 7 (5.3, 8.8) & 12.3 (9.2, 15.6) & 7.4 (5.1, 11.8) & 13.3 (8.4, 19.4) \\ 
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+% -----------------------
+% Degree Anomaly Tables
+
+
+%Seasonal Temperature
+\begin{table}[t]
+	\caption{\textbf{Seasonal Temperature} Projected absolute changes of winter average daily minimum temperature and and summer average daily maximum temperature for Canada and the sub-regions of Canada. Projections are calculated based on the time at which global average temperature anomalies of $1^o$C and $3^o$C are reached within each model. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:deg_seas_tas}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{Winter Min} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Temperature} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\
+			\hline
+			Canada & 3 (2.4, 3.5) & 8.5 (6.8, 9.6) & 3 (2.4, 3.5) & 8.7 (7.3, 9.7) \\ 
+			British Columbia & 2 (1.1, 2.6) & 5.2 (3.9, 6.6) & 1.5 (0.9, 2.1) & 4.7 (3.7, 5.7) \\ 
+			Prairies & 2.6 (1.7, 3.4) & 7.2 (5.8, 8.4) & 2.3 (1.6, 3) & 7 (5.8, 8.5) \\ 
+			Ontario & 2.7 (1.9, 3.5) & 7.7 (5.9, 8.9) & 2.9 (2.2, 3.5) & 8.1 (6.4, 9.4) \\ 
+			Quebec & 3.1 (2.2, 4.1) & 8.9 (7, 10.7) & 3.5 (2.7, 4.4) & 9.4 (8.3, 10.7) \\ 
+			Atlantic Canada & 2.5 (1.7, 3.3) & 6.9 (5.2, 8.5) & 2.9 (2, 3.7) & 7.3 (6.3, 8.5) \\ 
+			Northern Canada & 3.4 (2.5, 4.1) & 10.1 (8, 11.4) & 3.4 (2.6, 4.1) & 10.5 (8.6, 12.3) \\ 
+			\hline
+			\textbf{Summer Max} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Temperature} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\	
+			\hline
+			Canada & 1.4 (0.8, 1.9) & 4.3 (3, 5.8) & 1.8 (1.3, 2.4) & 4.8 (3.8, 6.2) \\ 
+			British Columbia & 1.5 (0.9, 2.1) & 4.6 (3.2, 6.1) & 1.8 (1.3, 2.5) & 5.1 (3.8, 6.8) \\ 
+			Prairies & 1.6 (0.9, 2.2) & 4.7 (3.1, 5.9) & 2.1 (1.2, 3.2) & 5.6 (3.9, 7.4) \\ 
+			Ontario & 1.7 (1.3, 2.1) & 4.9 (3.6, 5.9) & 2 (1.3, 2.6) & 5.4 (4, 6.8) \\ 
+			Quebec & 1.5 (1, 2) & 4.6 (3.7, 5.5) & 1.9 (1.4, 2.6) & 5.1 (3.8, 6.4) \\ 
+			Atlantic Canada & 1.4 (1.1, 1.9) & 4.2 (3.3, 5.2) & 1.9 (1.3, 2.4) & 4.9 (3.5, 6) \\ 
+			Northern Canada & 1.2 (0.4, 2) & 3.8 (2.2, 5.7) & 1.5 (1, 2) & 4.3 (3.1, 5.7) \\ 
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+
+%Extreme Temperature
+\begin{table}[t]
+	\caption{\textbf{Extreme Temperature} Projected absolute changes of 20-year annual maximum and annual minimum temperature for Canada and the sub-regions of Canada. Projections are calculated based on the time at which global average temperature anomalies of $1^o$C and $3^o$C are reached within each model. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:deg_ext_tas}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{20-year Max} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Temperature} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\
+			\hline
+			Canada & 1.6 (0.8, 2) & 4.8 (2.9, 5.9) & 1.9 (1.2, 2.7) & 5.4 (4.3, 7.5) \\ 
+			British Columbia & 1.6 (0.7, 2.5) & 4.9 (3.4, 7.2) & 2 (0.8, 3) & 5.3 (3.5, 7.4) \\ 
+			Prairies & 1.8 (0.8, 2.8) & 5.4 (2.8, 7.3) & 2 (0.6, 3.2) & 5.9 (4.2, 7.9) \\ 
+			Ontario & 1.9 (0.9, 2.9) & 5.4 (3.5, 7.2) & 1.9 (0.9, 2.9) & 5.7 (4.1, 7.4) \\ 
+			Quebec & 1.6 (0.7, 2.3) & 5.1 (3.5, 7.1) & 2.1 (1.1, 3.3) & 5.4 (3.9, 7.5) \\ 
+			Atlantic Canada & 1.4 (0.8, 2.1) & 4.7 (3.4, 6.2) & 2 (1.1, 3) & 5.1 (3.7, 7) \\ 
+			Northern Canada & 1.4 (0.5, 2.3) & 4.4 (2, 6) & 1.7 (0.8, 2.3) & 5.3 (3.7, 7.4) \\ 
+			\hline
+			\textbf{20-year Min} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Temperature} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\	
+			\hline
+			Canada & 3 (2.2, 3.8) & 9.2 (8, 10.5) & 3.1 (1.9, 4) & 9.6 (7.3, 12) \\ 
+			British Columbia & 2.8 (0.8, 4) & 8.3 (6.4, 10.1) & 2.2 (1.2, 3.5) & 7.4 (5.2, 9.6) \\ 
+			Prairies & 2.8 (1.5, 3.9) & 8.4 (6.9, 9.8) & 2.5 (1.7, 3.8) & 8.5 (6.6, 10.8) \\ 
+			Ontario & 2.9 (2, 4.2) & 9.2 (7.4, 10.9) & 3.2 (2.3, 4.3) & 10 (7.7, 12.7) \\ 
+			Quebec & 3.1 (2, 4) & 10.1 (7.7, 12.3) & 3.5 (2.2, 4.9) & 10.8 (7.9, 13.6) \\ 
+			Atlantic Canada & 3.2 (2.1, 4.4) & 9.8 (7.6, 12) & 3.6 (2.1, 4.9) & 10.2 (8.2, 12.4) \\ 
+			Northern Canada & 3.1 (2.1, 4) & 9.4 (7.9, 10.5) & 3.2 (1.8, 4.3) & 9.9 (6.8, 12.3) \\ 
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+
+
+
+%Scenario Selection
+
+\clearpage
+
+\section{Recommended CMIP6 ensembles}\label{selection}
+
+Using of all available climate simulations from CMIP6 can be useful for exploring uncertainty or maximizing sample size for ensemble statistics, but often requires manipulation and analysis of large and numerous data files. In many applications, a subset of climate models selected to be representative of the whole ensemble can be as effective in providing quantitative information about projected climate change. 
+
+Representative subsets of the CMIP5 ensemble of GCMs were previously determined using selection criteria \citep{cannon_selecting_2014} designed to capture projected changes from the Climdex indices of extremes \citep{Zhang2011}. Models were chosen iteratively using the Katsavounidis–Kuo–Zhang (KKZ) method to create an ordered set of GCMs that together span $90\%$ of the range of projections from each of the 27 Climdex indices. The selection method was applied for different sub-continential regions \citep{Giorgi2000} overlapping with Canada leading to different representative subsets of CMIP5 GCMs for each region \citep{cannon_selecting_2014}. The CMIP5 subset of 12 GCMs for Western North America (commonly referred to as the ``PCIC12'') has been frequently used in a wide variety of research and climate impacts applications. 
+
+The same selection criteria has been applied to CMIP6 GCMs (following the SSP2 4.5 pathway) to identify similar representative subsets that encapsulate the range projected changes from the CMIP6 ensemble for different sub-continental regions of North America. The CMIP6 ensemble considered for selection includes single realizations from 24 GCMs and 10 realizations from CanESM5 as identified in the initial Task 1 selection report (``Summary of CMIP6 Global Climate Models'') and listed in Tables \ref{table:gcm1} and \ref{table:gcm2} of Appendix \ref{cmip6_list}. 
+
+Application of the selection criteria to the CMIP6 GCMs has been slightly adapted compared to CMIP5. First, rather than consider all GCMs and realizations together, the selection method is applied to the 24 GCMs with each of the 10 realizations of CanESM5 separately, resulting in 10 subsets. From this set of 10 ordered lists, a single representative subset is identified by the frequency of each models' occurrence at each rank in the lists. Results from the selection method applied to all 10 CanESM5 realizations are provided in Appendix \ref{all_subsets}.
+
+Second, the sub-continental regions used have been updated to the IPCC-WGI regions \citep{Iturbide2020}, replacing the Giorgi Regions used previously. Five IPCC-WGI sub-continental regions including Northwest North America, Northeast North America, West North America, Central North America, and East North America overlap with Canada and subsets have been selected for each. Additionally, the boundary of Canada has also been added as a region used for selection. Model subset selections for Canada are presented here.
+
+Third, an additional application of the selection criteria has been done using future projection periods based on global average temperature change instead of a fixed future time interval. Future projections of the Climdex indices from each GCM are obtained from the 30-year period when the global average temperature anomaly in each model reaches $3^o$C of warming above a 1971-2000 baseline. Representative subsets of the CMIP6 ensemble for Canada as displayed in Table \ref{table:can_subsets}. 
+
+
+%Variable
+\begin{table}[ht!]
+	\caption{Ordered subsets of CMIP6 models for Canada using the KKZ selection criteria. Models are selected using projections from future climatologies calculated from a fixed future interval (2071-2100 under SSP2 4.5) and the 30-year climatology centred on when global average temperature anomalies in each model reach $3^o$C of warming. Both projections are calculated relative to a baseline of 1971-2000. }\label{table:can_subsets}
+	\begin{center}
+		\begin{tabularx}{0.602\linewidth}{|c|c|c|}
+			\hline
+			\textbf{Order} & 2071-2000 & $3^o$C Warming \\
+			\hline
+			1 & CNRM-ESM2-1 & HadGEM3-GC31-LL \\
+			2 & UKESM1-0-LL & NESM3 \\
+			3 & KACE-1-0-G  & EC-Earth3-Veg \\
+			4 & INM-CM4-8  & KACE-1-0-G \\
+			5 & NESM3  & MRI-ESM2-0 \\
+			6 & CanESM5 R6  & CNRM-CM6-1 \\
+			7 & EC-Earth3-Veg  & NorESM2-LM \\
+			8 & NorESM2-LM  & KIOST-ESM \\
+			9 & KIOST-ESM  & ACCESS-ESM1-5 \\
+			10 & IPSL-CM6A-LR  & MPI-ESM1-2-LR \\
+			11 & GFDL-ESM4 & FGOALS-g3 \\
+			12 & GFDL-ESM4  & MIROC6 \\
+			13 & MPI-ESM1-2-LR  & GFDL-ESM4 \\
+			14 & MIROC6  &  \\
+			15 & MRI-ESM2-0 &  \\
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}	
+
+\clearpage
+
+\begin{appendices}
+
+\section{List of Selected CMIP6 Models}\label{cmip6_list}
+
+%Snow temp table
+\begin{table}[ht]
+	\caption{List of CMIP6 global climate models selected for downscaling (Part 1)}\label{table:gcm1}
+	\begin{center}
+%		\begin{tabular}{|c|cc|}
+	\begin{tabularx}{\linewidth}{|L|cc|} 
+			\hline
+			\textbf{Institution} & \textbf{Model Name} & \textbf{Realizations}  \\
+			\hline
+			CSIRO (Australia)                     & ACCESS-ESM1-5 & r1i1p1f1   \\
+			CSIRO-ARCCSS (Australia) & ACCESS-CM2 & r1i1p1f1 \\
+		    Beijing Climate Center (China) & BCC-CSM2-MR & r1i1p1f1  \\
+		    Canadian Centre for Climate Modelling\newline and Analysis (Canada) & CanESM5 & r*i1p2f1 (1-10) \\
+			CNRM-CERFACS (France) & CNRM-CM6-1 & r1i1p1f2 \\  	
+			CNRM-CERFACS (France) & CNRM-ESM2-1 & r1i1p1f2 \\	  
+			EC-Earth-Consortium (Europe) & EC-Earth3 & r4i1p1f1 \\
+			EC-Earth-Consortium (Europe) & EC-Earth3-Veg & r1i1p1f1 \\	  
+			Institute of Atmospheric Physics (China) & FGOALS-g3 & r1i1p1f1 \\
+			NOAA-Geophysical Fluid Dynamcs Laboratory (USA) & GFDL-ESM4 & r1i1p1f1 \\
+			Met Office Hadley Centre and \newline Natural Environment Research Council (UK) & HadGEM3-GC31-LL & r1i1p1f3 \\
+			Institute for Numerical Mathematics (Russia) & INM-CM4-8 & r1i1p1f1 \\
+			Institute for Numerical Mathematics (Russia) & INM-CM5-0 & r1i1p1f1 \\	
+			Institut Pierre-Simon Laplace (France) & IPSL-CM6A-LR & r1i1p1f1 \\	
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+\begin{table}[t]
+	\caption{List of CMIP6 global climate models selected for downscaling (Part 2)}\label{table:gcm2}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|} 
+			\hline
+			\textbf{Institution} & \textbf{Model Name} & \textbf{Realizations}  \\
+			\hline
+			National Institute of Meteorological Sciences and Korea Meteorology Administration (Korea) & KACE-1-0-G & r2i1p1f1 \\ 
+Korea Institute of Ocean Science and Technology (Korea) & KIOST-ESM & r1i1p1f1 \\	
+University of Tokyo JAMSTEC, NIES, and AORI (Japan) & MIROC6 & r1i1p1f1 \\
+University of Tokyo JAMSTEC, NIES, and AORI (Japan) & MIROC-ES2L & r1i1p1f2 \\  					
+Max Planck Institute for Meteorology (Germany) & MPI-ESM1-2-HR & r1i1p1f1 \\
+Max Planck Institute for Meteorology (Germany) & MPI-ESM1-2-LR & r1i1p1f1 \\   	
+Meteorological Research Institute (Japan) & MRI-ESM2-0 & r1i1p1f1 \\
+Nanjing University of Information Science and Technology (China) & NESM3 & r1i1p1f1 \\
+Norwegian Climate Center (Norway) & NorESM2-LM & r1i1p1f1 \\
+Norwegian Climate Center (Norway) & NorESM2-MM & r1i1p1f1 \\			
+Met Office Hadley Centre and \newline Natural Environment Research Council (UK) & UKESM1-0-LL & r1i1p1f2 \\	  	 
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+\clearpage
+
+\section{List of CMIP5 Models}\label{cmip5_list}
+
+\begin{table}[ht]
+	\caption{List of CMIP5 global climate models downscaled previously (Part 1)}\label{table:gcm3}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|} 
+			\hline
+			\textbf{Institution} & \textbf{Model Name} & \textbf{Realizations}  \\
+			\hline
+			CSIRO-BOM (Australia)                     & ACCESS-0 & r1i1p1   \\
+			Beijing Climate Center (China) & bcc-csm1-1 & r1i1p1  \\
+			Beijing Climate Center (China) & bcc-csm1-1-m & r1i1p1  \\			
+			Beijing Normal University (China) & BNU-ESM & r1i1p1  \\						
+						Canadian Centre for Climate Modelling\newline and Analysis (Canada) & CanESM2 & r1i1p1) \\
+National Center for Atmospheric Research & CCSM4 & r2i1p1 \\
+University Corporation for Atmospheric Research & CESM1-CAM5 & r1i1p1 \\
+
+CNRM-CERFACS (France) & CNRM-CM5 & r1i1p1 \\  	
+CSIRO-QCCCE (Australia)                   & CSIRO-Mk3-6-0 & r1i1p1   \\	
+Institute of Atmospheric Physics (China) & FGOALS-g2 & r1i1p1 \\
+NOAA-Geophysical Fluid Dynamcs Laboratory (USA) & GFDL-CM3 & r1i1p1 \\
+NOAA-Geophysical Fluid Dynamcs Laboratory (USA) & GFDL-ESM2G & r1i1p1 \\			
+NOAA-Geophysical Fluid Dynamcs Laboratory (USA) & GFDL-ESM2M & r1i1p1 \\
+National Institute of Meteorological Sciences and Korea Meteorology Administration (Korea) & HadGEM2-AO & r1i1p1 \\ 
+			
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+\begin{table}[t]
+	\caption{List of CMIP5 global climate models downscaled previously (Part 2)}\label{table:gcm4}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|} 
+			\hline
+			\textbf{Institution} & \textbf{Model Name} & \textbf{Realizations}  \\
+			\hline					
+			Met Office Hadley Centre (UK) & HadGEM2-CC & r1i1p1 \\
+			Met Office Hadley Centre (UK) & HadGEM2-ES & r1i1p1 \\
+			Institute for Numerical Mathematics (Russia) & inmcm4 & r1i1p1 \\
+			Institut Pierre-Simon Laplace (France) & IPSL-CM5A-LR & r1i1p1 \\
+			Institut Pierre-Simon Laplace (France) & IPSL-CM5A-MR & r1i1p1 \\
+			University of Tokyo JAMSTEC, NIES (Japan) & MIROC-ESM & r1i1p1 \\
+			University of Tokyo JAMSTEC, NIES (Japan) & MIROC-ESM-CHEM & r1i1p1 \\   
+			University of Tokyo JAMSTEC, NIES (Japan) & MIROC5 & r3i1p1 \\   			
+			Max Planck Institute for Meteorology (Germany) & MPI-ESM-LR & r3i1p1 \\
+			Max Planck Institute for Meteorology (Germany) & MPI-ESM-HR & r1i1p1 \\   	
+			Meteorological Research Institute (Japan) & MRI-CGCM3 & r1i1p1 \\
+			Norwegian Climate Center (Norway) & NorESM1-M & r1i1p1 \\
+			Norwegian Climate Center (Norway) & NorESM1-ME & r1i1p1 \\			
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+\clearpage
+
+\section{Model Selection for Canada}\label{all_subsets}
+
+%Ordered subsets
+\begin{table}[ht]
+	\caption{Ordered subsets of CMIP6 models selected for Canada with selection performed separately for each of the 10 realizations (R1-10) of CanESM5. Subsets are selected using projected changes in Climdex indices of extremes between 1971-2000 and 2071-2100 from the simulations following the SSP2 4.5 pathway.}\label{table:can5_select}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cccccccccc|} 
+			\hline
+			\textbf{Order} & R1 & R2 & R3 &R4 &R5 &R6 &R7 & R8 & R9 & R10   \\
+			\hline
+			1 & CNE & CNE & CNE & CNE & CNE & CNE & CNE & CNE & CNE & CNE \\
+			2 & UKE & UKE & UKE & UKE & UKE & UKE & UKE & UKE & UKE & UKE \\
+			3 & KAC & KAC & KAC & KAC & KAC & KAC & KAC & KAC & KAC & KAC   \\
+			4 & \textbf{Can} & IN8 & IN8 & IN8 & IN8 & IN8 & IN8 & IN8 & IN8 & IN8   \\
+			5 & IN8 & NES & NES & NES & NES & NES & NES & NES & NES & NES   \\
+			6 & NES & \textbf{Can} & \textbf{Can} & ECV & \textbf{Can} & \textbf{Can} & \textbf{Can} & \textbf{Can} & \textbf{Can} & \textbf{Can}   \\			
+			7 & ECV & ECV & ECV & \textbf{Can} & ECV & ECV & ECV & ECV & ECV & ECV \\			
+			8 & NLM & NLM & NLM & NLM & NLM & NLM & NLM & NLM & NLM & NLM \\
+			9 & IPS & KIO & KIO & IPS & IPS & KIO & IPS & KIO & KIO & IPS \\
+			10 & KIO & ACE & IPS & KIO & KIO & IPS & KIO & IPS & ACE & ACE \\
+			11 & ACE & IPS & ACE & ACE & ACE & ACE & ACE & ACE & IPS & KIO \\
+			12 & GFD & GFD & GFD & GFD & GFD & GFD & GFD & GFD & GFD & GFD \\
+			13 & MLR & MLR & MLR & MLR & MLR & MLR & MLR & MLR & MLR & MLR \\
+			14 & MI6 & MRI & MRI & MI6 & ACC & MI6 & MI6 & ACC & MI6 & MI6 \\
+			15 & MRI &     &     & MRI & MI6 & MRI & MRI & MRI & MRI & ACC \\
+			16 &     &     &     &     & MRI &     &     &     &     & MRI \\
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}			
+
+\begin{table}[ht]
+	\caption{Ordered subsets of CMIP6 models selected for Canada with selection performed separately for each of the 10 realizations (R1-10) of CanESM5. Subsets are selected using projected changes in Climdex indices of extremes between 1971-2000 and the 30-year period centred on the year when each models' global average temperature anomaly reaches $3^o$C.}\label{table:can5_deg_select}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cccccccccc|} 
+			\hline
+			\textbf{Order} & R1 & R2 & R3 &R4 &R5 &R6 &R7 & R8 & R9 & R10   \\
+			\hline
+			1 & CNE & CNE & CNE & CNE & CNE & CNE & CNE & CNE & CNE & CNE \\
+			2 & UKE & UKE & UKE & UKE & UKE & UKE & UKE & UKE & UKE & UKE \\
+			3 & KAC & KAC & KAC & KAC & KAC & KAC & KAC & KAC & KAC & KAC   \\
+			4 & \textbf{Can} & IN8 & IN8 & IN8 & IN8 & IN8 & IN8 & IN8 & IN8 & IN8   \\
+			5 & IN8 & NES & NES & NES & NES & NES & NES & NES & NES & NES   \\
+			6 & NES & \textbf{Can} & \textbf{Can} & ECV & \textbf{Can} & \textbf{Can} & \textbf{Can} & \textbf{Can} & \textbf{Can} & \textbf{Can}   \\			
+			7 & ECV & ECV & ECV & \textbf{Can} & ECV & ECV & ECV & ECV & ECV & ECV \\			
+			8 & NLM & NLM & NLM & NLM & NLM & NLM & NLM & NLM & NLM & NLM \\
+			9 & IPS & KIO & KIO & IPS & IPS & KIO & IPS & KIO & KIO & IPS \\
+			10 & KIO & ACE & IPS & KIO & KIO & IPS & KIO & IPS & ACE & ACE \\
+			11 & ACE & IPS & ACE & ACE & ACE & ACE & ACE & ACE & IPS & KIO \\
+			12 & GFD & GFD & GFD & GFD & GFD & GFD & GFD & GFD & GFD & GFD \\
+			13 & MLR & MLR & MLR & MLR & MLR & MLR & MLR & MLR & MLR & MLR \\
+			14 & MI6 & MRI & MRI & MI6 & ACC & MI6 & MI6 & ACC & MI6 & MI6 \\
+			15 & MRI &     &     & MRI & MI6 & MRI & MRI & MRI & MRI & ACC \\
+			16 &     &     &     &     & MRI &     &     &     &     & MRI \\
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}		
+
+\clearpage
+
+\section{Additional Historical Comparison Maps and Tables}\label{added_hist}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/climdex_cdd_cwd_cmip-anusplin_comparison_1951-2005.png}
+	\caption[DD]{Absolute differences in Climdex indices CDD (consecutive dry days) and CWD (consecutive wet days) between CMIP5 and CMIP6 ensemble averages, and ANUSPLIN climatologies calculated over $1951$-$2005$. The top row displays differences in days for the annual maximum dry spell length and the bottom row displays differences in days for the annual maximum wet spell length. The left column panels use ensemble average climatologies from CMIP5, while the right column panels use the CMIP6 ensemble average. All datasets are regridded to a $1.0^o$ regular grid prior to comparison.}
+	\label{fig:ddETCCDI_hist}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/climdex_cold_days_cmip-anusplin_comparison_1951-2005.png}
+	\caption[DD]{Same as Figure \ref{fig:ddETCCDI_hist} but for Frost Days (FD) and Ice Days (ID).}
+	\label{fig:coldETCCDI_hist}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/climdex_gsl_su_cmip-anusplin_comparison_1951-2005.png}
+	\caption[DD]{Same as Figure \ref{fig:coldETCCDI_hist} but for Growing Season Length (GSL) and Summer Days (SU: days above $25^o$C).}
+	\label{fig:gslETCCDI_hist}
+\end{figure}
+
+%Historical Comparison
+\begin{table}[t]
+	\caption{\textbf{Degree Days} Past climatologies for Canada and six sub-regions of four degree day indices. Climatologies are calculated over 1951-2005 from ANUSPLIN gridded observations (Obs), the CMIP5 ensemble, and the CMIP6 ensemble. Values displayed from the CMIP ensembles include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile. All datasets are regridded to a $1.0^o$ regular grid prior to regionally averaging.}\label{table:past_deg_days_compare}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabular}{|l|ccc|} 
+			\hline
+			% & \textbf{Winter Precip.} & & & \textbf{Summer Prec.} & & \\\
+			\multicolumn{4}{|c|}{\textbf{Cooling Degree Days)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 26 & 55 (19, 108) & 45 (21, 74) \\ 
+			British Columbia & 8 & 20 (3, 43) & 18 (4, 39) \\ 
+			Prairies & 54 & 132 (31, 247) & 106 (45, 184) \\ 
+			Ontario & 82 & 173 (78, 295) & 150 (78, 225) \\ 
+			Quebec & 26 & 44 (17, 95) & 36 (18, 64) \\ 
+			Atlantic Canada & 27 & 39 (14, 89) & 29 (10, 51) \\ 
+			Northern Canada & 4 & 11 (2, 28) & 8 (1, 20) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Heating Degree Days}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 8288 & 8218 (7569, 8858) & 8298 (7823, 8889) \\ 
+			British Columbia & 6115 & 5941 (5185, 6615) & 6028 (5515, 6575) \\ 
+			Prairies & 6770 & 6451 (5765, 6976) & 6456 (5898, 6884) \\ 
+			Ontario & 6384 & 5997 (5349, 6513) & 6048 (5521, 6651) \\ 
+			Quebec & 7443 & 7263 (6678, 7854) & 7370 (6900, 7894) \\ 
+			Atlantic Canada & 6292 & 6029 (5274, 6646) & 6201 (5762, 6726) \\ 
+			Northern Canada & 10609 & 10590 (9487, 11608) & 10658 (9907, 11354) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Freezing Degree Days}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 3196 & 3136 (2527, 3754) & 3168 (2780, 3515) \\ 
+			British Columbia & 1320 & 1224 (898, 1421) & 1295 (975, 1611) \\ 
+			Prairies & 2276 & 2055 (1594, 2524) & 2040 (1636, 2383) \\ 
+			Ontario & 2007 & 1785 (1387, 2176) & 1761 (1446, 2104) \\ 
+			Quebec & 2461 & 2310 (1800, 2784) & 2354 (1952, 2755) \\ 
+			Atlantic Canada & 1580 & 1418 (1053, 1803) & 1472 (1161, 1795) \\ 
+			Northern Canada & 4886 & 4821 (3896, 5912) & 4855 (4250, 5403) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Growing Degree Days}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 782 & 848 (636, 1110) & 807 (625, 975) \\ 
+			British Columbia & 844 & 933 (594, 1334) & 931 (668, 1173) \\ 
+			Prairies & 1245 & 1408 (1111, 1847) & 1360 (1139, 1583) \\ 
+			Ontario & 1355 & 1584 (1305, 2015) & 1501 (1271, 1728) \\ 
+			Quebec & 847 & 896 (661, 1161) & 852 (657, 1110) \\ 
+			Atlantic Canada & 968 & 1055 (826, 1419) & 967 (777, 1246) \\ 
+			Northern Canada & 355 & 380 (235, 586) & 360 (196, 544) \\ 
+			\hline	
+		\end{tabular}
+	\end{center}
+\end{table}
+
+%Historical Comparison
+\begin{table}[t]
+	\caption{\textbf{Climdex} Same as Table \ref{table:past_deg_days_compare}, but for Climdex indices growing season length (GSL), frost days (FD) , annual maximum temperature (TXX), and annual minimum temperature (TNN).}\label{table:past_climdex_compare}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabular}{|l|ccc|} 
+			\hline
+			% & \textbf{Winter Precip.} & & & \textbf{Summer Prec.} & & \\\
+			\multicolumn{4}{|c|}{\textbf{Growing Season Length (GSL)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 108 & 109 (96, 122) & 105 (88, 120) \\ 
+			British Columbia & 149 & 154 (122, 189) & 151 (131, 178) \\ 
+			Prairies & 155 & 156 (146, 169) & 156 (143, 166) \\ 
+			Ontario & 160 & 164 (151, 182) & 159 (144, 173) \\ 
+			Quebec & 120 & 119 (103, 139) & 112 (85, 138) \\ 
+			Atlantic Canada & 138 & 148 (121, 181) & 136 (109, 161) \\ 
+			Northern Canada & 54 & 56 (41, 74) & 53 (33, 74) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Frost Days (FD)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 240 & 228 (215, 242) & 230 (214, 246) \\ 
+			British Columbia & 211 & 182 (155, 203) & 185 (159, 208) \\ 
+			Prairies & 214 & 199 (184, 209) & 197 (179, 208) \\ 
+			Ontario & 203 & 186 (171, 202) & 185 (163, 204) \\ 
+			Quebec & 228 & 217 (202, 232) & 218 (200, 234) \\ 
+			Atlantic Canada & 205 & 174 (148, 203) & 179 (161, 195) \\ 
+			Northern Canada & 278 & 275 (259, 294) & 278 (257, 298) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Annual Maximum Daily Temperature (TXX)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & 25.8 & 23.3 (20.2, 26.5) & 22.4 (20.6, 24.7) \\ 
+			British Columbia & 27.3 & 24.9 (21.4, 27.8) & 24.7 (22.1, 27.3) \\ 
+			Prairies & 31.3 & 30.9 (26.6, 34.4) & 30.1 (27.5, 33.4) \\ 
+			Ontario & 31 & 31.4 (27.3, 34.9) & 30.2 (27, 34.1) \\ 
+			Quebec & 27.1 & 24.9 (21.9, 28.6) & 24.5 (22.3, 27.4) \\ 
+			Atlantic Canada & 27.4 & 22.9 (20.4, 26.3) & 22.6 (20.5, 24.6) \\ 
+			Northern Canada & 20.9 & 18 (14.9, 21.6) & 16.7 (12.9, 20) \\ 
+			\hline	
+			\multicolumn{4}{|c|}{\textbf{Annual Minimum Daily Temperature (TNN)}} \\
+			\hline
+			Region & Obs. & CMIP5 & CMIP6   \\
+			\hline
+			Canada & -40.3 & -39.5 (-43.2, -33.6) & -40 (-46.2, -35.2) \\ 
+			British Columbia & -32.7 & -31 (-36.2, -26.4) & -31.5 (-36.9, -25.5) \\ 
+			Prairies & -40.5 & -38.5 (-43.4, -32.7) & -38.7 (-46.1, -32.5) \\ 
+			Ontario & -38.3 & -35 (-40, -29) & -35.1 (-41, -28.4) \\ 
+			Quebec & -38.9 & -37.3 (-42, -30.2) & -37.8 (-44.5, -31.8) \\ 
+			Atlantic Canada & -30.5 & -27.4 (-30.8, -22.1) & -28 (-32.6, -23.5) \\ 
+			Northern Canada & -44.6 & -46.3 (-50.9, -40.8) & -46.6 (-52, -42.6) \\ 
+			\hline	
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\clearpage
+
+\section{Additional Future Projection Maps and Tables}\label{added_proj}
+	
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/climdex_cddETCCDI_annual_absolute_changes_cmip.png}
+	\caption[CDD]{PProjected absolute changes in Climdex Consecutive Dry Days (CDD) from both CMIP ensembles for the 2080s and 2050s. Ensemble average future changes relative to 1971-2000 climatology are displayed from RCP 2.6 (top row) and RCP8.5 (third row) from CMIP5, and SSP1 2.6 (second row) and SSP5 8.5 (fourth row) from CMIP6.}
+	\label{fig:climdex_cdd_future}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/climdex_cwdETCCDI_annual_absolute_changes_cmip.png}
+	\caption[CDD]{PProjected absolute changes in Climdex Consecutive Wet Days (CDD) from both CMIP ensembles for the 2080s and 2050s. Ensemble average future changes relative to 1971-2000 climatology are displayed from RCP 2.6 (top row) and RCP8.5 (third row) from CMIP5, and SSP1 2.6 (second row) and SSP5 8.5 (fourth row) from CMIP6.}
+	\label{fig:climdex_cwd_future}
+\end{figure}	
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/climdex_gslETCCDI_annual_absolute_changes_cmip.png}
+	\caption[CDD]{PProjected absolute changes in Climdex Growing Season Length (GSL) from both CMIP ensembles for the 2080s and 2050s. Ensemble average future changes relative to 1971-2000 climatology are displayed from RCP 2.6 (top row) and RCP8.5 (third row) from CMIP5, and SSP1 2.6 (second row) and SSP5 8.5 (fourth row) from CMIP6.}
+	\label{fig:climdex_gsl_future}
+\end{figure}	
+	
+%------------------------
+% Degree Anomalies
+%------------------------
+% Degree Anomalies
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_winter_average_tasmin_absolute_changes_cmip.png}
+	\caption[Pr]{Projected absolute changes in average winter minimum temperature from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:win_tasmin_deg_anoms}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_summer_average_tasmax_absolute_changes_cmip.png}
+	\caption[Pr]{Same as Figure \ref{fig:win_tasmin_deg_anoms} but for summer average maximum temperature.}
+	\label{fig:sum_tasmax_deg_anoms}
+\end{figure}
+
+
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_annual_average_tasmax_rp20_absolute_changes_cmip.png}
+	\caption[Tas]{Same as Figure \ref{fig:ext_tasmin_deg_anoms} but for summer average maximum temperature.}
+	\label{fig:ext_tasmax_deg_anoms}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_winter_average_pr_percent_changes_cmip.png}
+	\caption[Pr]{Projected percent changes in average winter total precipitation from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:win_pr_deg_anoms}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_summer_average_pr_percent_changes_cmip.png}
+	\caption[Pr]{Same as Figure \ref{fig:win_pr_deg_anoms} but for average summer total precipitation.}
+	\label{fig:summer_pr_deg_anoms}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_annual_average_pr_rp50_percent_changes_cmip.png}
+	\caption[Tas]{Projected absolute changes in 50-year annual maximum daily precipitation from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:ext_pr50_deg_anoms}
+\end{figure}
+
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_annual_average_rx1dayETCCDI_percent_changes_cmip.png}
+	\caption[Pr]{Projected percent changes in annual maximum daily precipitation from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:rx1day_deg_anoms}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figures/degree_anomalies_annual_average_rx5dayETCCDI_percent_changes_cmip.png}
+	\caption[Pr]{Projected percent changes in annual maximum 5-day precipitation from both CMIP ensembles at $1^o$C, $2^o$C, and $3^o$C of global average temperature increase. Ensemble average future changes relative to 1971-2000 climatology are displayed from CMIP5 (left column), and from CMIP6 (right column).}
+	\label{fig:rx5day_deg_anoms}
+\end{figure}
+
+
+%Variable
+\begin{table}[t]
+	\caption{\textbf{Seasonal Average Temperature} Projected absolute changes of winter average daily minimum temperature and and summer average daily maximum temperature for Canada and the sub-regions of Canada. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:bc_seas_tas}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{Winter Min} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Temperature}                & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 3.8 (2.7, 5.5) & 3.9 (2.3, 5.4) & 4.5 (3.1, 6.8) & 4.7 (3, 7.5) \\ 
+			British Columbia & 2.4 (1.6, 3.3) & 2.8 (1.5, 3.7) & 2.5 (1.6, 3.6) & 2.6 (1.6, 3.7) \\ 
+			Prairies & 3.2 (2.2, 4.4) & 3.5 (2.2, 4.5) & 3.6 (2.5, 5.5) & 3.7 (2.2, 6) \\ 
+			Ontario & 3.4 (2.2, 4.9) & 3.5 (2.1, 4.5) & 4.3 (3, 6.7) & 4.4 (3, 7.2) \\ 
+			Quebec & 4.1 (2.5, 6.2) & 4.2 (2.2, 6.4) & 5.1 (3.5, 8.3) & 5.3 (3.6, 8.7) \\ 
+			Atlantic Canada & 3.3 (2.1, 4.8) & 3.3 (1.6, 4.8) & 4.1 (2.8, 6.5) & 4.2 (2.6, 6.8) \\ 
+			Northern Canada & 4.3 (3.2, 6) & 4.5 (2.9, 6.3) & 5.1 (3.5, 7.8) & 5.4 (3.1, 8.7) \\ 		
+			\hline
+			\textbf{Winter Min} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Temperature} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 6.5 (4.5, 8.2) & 10.6 (7.4, 13.4) & 6.8 (5, 9.4) & 11.5 (8.5, 16.4) \\ 
+			British Columbia & 4 (2.6, 5.7) & 6.4 (4.5, 8.2) & 3.6 (2.4, 4.8) & 6.1 (4.5, 8.3) \\ 
+			Prairies & 5.5 (3.6, 7.6) & 9 (6.5, 11) & 5.4 (4.2, 7.8) & 9.3 (7, 13.4) \\ 
+			Ontario & 5.9 (3.9, 7.6) & 9.5 (7, 12) & 6.5 (5, 9.6) & 10.4 (8.2, 14.4) \\ 
+			Quebec & 6.9 (4.8, 9) & 10.8 (8.2, 13.2) & 7.6 (5.8, 10.4) & 11.9 (9.2, 16.3) \\ 
+			Atlantic Canada & 5.3 (3.3, 7.1) & 8.3 (6, 10.1) & 5.9 (4.2, 7.8) & 9.2 (6.8, 12.5) \\ 
+			Northern Canada & 7.7 (5.6, 9.9) & 12.8 (9.2, 16.3) & 8 (5.4, 11.5) & 14.1 (9.5, 19.8) \\ 				
+			\hline
+			\hline
+			\textbf{Summer Max} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Temperature} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 1.9 (1, 3) & 1.9 (0.7, 2.9) & 2.5 (1.4, 4) & 2.6 (1.3, 4.6) \\ 
+			British Columbia & 2 (0.8, 3.2) & 2 (0.9, 3.1) & 2.6 (1.5, 3.9) & 2.8 (1.5, 4.7) \\ 
+			Prairies & 1.9 (1.1, 3) & 1.9 (0.7, 2.9) & 2.9 (1.5, 4.7) & 3 (1.5, 5.6) \\ 
+			Ontario & 2 (1, 2.9) & 2 (0.8, 3.1) & 2.8 (1.7, 4.3) & 2.9 (1.4, 4.6) \\ 
+			Quebec & 2 (1, 3) & 2 (0.9, 3) & 2.7 (1.5, 4.3) & 2.8 (1.4, 4.9) \\ 
+			Atlantic Canada & 1.9 (0.9, 3.1) & 1.8 (0.7, 2.8) & 2.6 (1.4, 3.9) & 2.7 (1.4, 4.4) \\ 
+			Northern Canada & 1.8 (0.9, 2.9) & 1.8 (0.6, 3.1) & 2.2 (1.2, 3.8) & 2.4 (1.2, 4.5) \\ 
+			\hline
+			\textbf{Summer Max} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Temperature} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 3.3 (1.8, 4.6) & 5.5 (3.1, 7.5) & 3.8 (2.5, 6) & 6.5 (3.9, 9.4) \\ 
+			British Columbia & 3.6 (1.9, 5.2) & 5.8 (3.2, 8.3) & 4.1 (2.7, 6.4) & 6.7 (4.3, 10.3) \\ 
+			Prairies & 3.6 (1.8, 5) & 6.1 (3.2, 8.5) & 4.5 (2.9, 6.9) & 7.3 (4.8, 10.2) \\ 
+			Ontario & 3.7 (2.3, 4.8) & 6.3 (3.6, 8.2) & 4.3 (2.7, 6.6) & 7.1 (4.2, 10) \\ 
+			Quebec & 3.5 (2.3, 4.6) & 5.9 (3.9, 7.8) & 4.1 (2.4, 6.3) & 6.8 (3.9, 10.1) \\ 
+			Atlantic Canada & 3.2 (2, 4.4) & 5.4 (3.6, 7.3) & 3.9 (2.3, 5.5) & 6.4 (3.7, 9.2) \\ 
+			Northern Canada & 3 (1.4, 4.4) & 5 (2.6, 7.7) & 3.4 (2.2, 5.6) & 5.9 (3.4, 8.9) \\ 			
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+%Seasonal Precipitation
+\begin{table}[t]
+	\caption{\textbf{Seasonal Total Precipitation} Projected percent changes of winter and summer total precipitation for Canada and the sub-regions of Canada. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:bc_seas_pr}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{Winter} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Precipitation}                & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 11 (6, 16) & 12 (7, 16) & 12 (7, 17) & 13 (7, 21) \\ 
+			British Columbia & 8 (1, 14) & 9 (4, 15) & 6 (0, 13) & 7 (1, 15) \\ 
+			Prairies & 9 (3, 17) & 9 (4, 15) & 10 (5, 18) & 12 (4, 19) \\ 
+			Ontario & 12 (5, 20) & 11 (2, 20) & 13 (7, 20) & 14 (6, 22) \\ 
+			Quebec & 14 (6, 24) & 13 (4, 21) & 17 (10, 24) & 18 (10, 28) \\ 
+			Atlantic Canada & 8 (1, 18) & 8 (2, 14) & 11 (4, 18) & 11 (5, 16) \\ 
+			Northern Canada & 18 (10, 27) & 19 (11, 29) & 20 (11, 35) & 23 (12, 39) \\ 
+			\hline
+			\textbf{Winter} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Precipitation}			& 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 18 (13, 24) & 31 (21, 39) & 19 (12, 26) & 33 (22, 43) \\ 
+			British Columbia & 10 (4, 19) & 18 (4, 29) & 8 (2, 16) & 13 (4, 20) \\ 
+			Prairies & 14 (7, 20) & 25 (15, 35) & 16 (6, 25) & 28 (13, 40) \\ 
+			Ontario & 20 (12, 29) & 33 (19, 48) & 22 (15, 33) & 37 (25, 52) \\ 
+			Quebec & 24 (15, 35) & 38 (25, 55) & 27 (18, 40) & 45 (33, 59) \\ 
+			Atlantic Canada & 14 (7, 23) & 22 (12, 33) & 15 (10, 24) & 26 (18, 36) \\ 
+			Northern Canada & 30 (18, 39) & 55 (31, 81) & 32 (21, 50) & 60 (36, 90) \\ 			
+			\hline
+			\hline
+			\textbf{Summer} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Precipitation} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 5 (2, 9) & 6 (3, 10) & 5 (2, 9) & 6 (3, 10) \\ 
+			British Columbia & 4 (0, 7) & 4 (-2, 8) & 1 (-4, 9) & 2 (-3, 9) \\ 
+			Prairies & 3 (-4, 12) & 4 (-1, 10) & 0 (-9, 9) & 1 (-8, 10) \\ 
+			Ontario & 2 (-5, 7) & 3 (-3, 8) & 0 (-7, 7) & 2 (-6, 9) \\ 
+			Quebec & 5 (0, 10) & 6 (1, 11) & 6 (2, 10) & 8 (5, 12) \\ 
+			Atlantic Canada & 6 (2, 12) & 6 (1, 11) & 7 (1, 13) & 9 (4, 14) \\ 
+			Northern Canada & 8 (4, 13) & 8 (3, 13) & 11 (6, 17) & 11 (5, 20) \\ 		
+			\hline
+			\textbf{Summer} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Precipitation} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 6 (2, 12) & 8 (0, 17) & 5 (0, 11) & 7 (-4, 18) \\ 
+			British Columbia & 0 (-7, 7) & -2 (-15, 7) & -1 (-10, 8) & -2 (-16, 11) \\ 
+			Prairies & 1 (-10, 14) & -1 (-19, 16) & -4 (-14, 8) & -6 (-28, 13) \\ 
+			Ontario & -1 (-13, 7) & -3 (-21, 12) & -2 (-13, 6) & -5 (-18, 11) \\ 
+			Quebec & 6 (1, 14) & 7 (-2, 15) & 6 (0, 10) & 8 (1, 16) \\ 
+			Atlantic Canada & 9 (5, 18) & 11 (4, 22) & 8 (3, 13) & 11 (3, 20) \\ 
+			Northern Canada & 13 (8, 18) & 20 (13, 33) & 14 (5, 21) & 22 (12, 33) \\ 	
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+%Extreme Precipitation
+\begin{table}[t]
+	\caption{\textbf{Extreme Precipitation} Projected percent changes of 20-year and 50-year annual maximum one day precipitation amounts for Canada and the sub-regions of Canada. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:bc_rp20_pr}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{20-Year} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Precipitation}                & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 10 (6, 14) & 10 (6, 14) & 12 (7, 18) & 13 (7, 21) \\ 
+			British Columbia & 9 (5, 15) & 9 (3, 17) & 10 (4, 16) & 10 (3, 20) \\ 
+			Prairies & 9 (4, 13) & 8 (3, 13) & 8 (0, 15) & 8 (3, 15) \\ 
+			Ontario & 9 (3, 13) & 8 (4, 13) & 10 (5, 15) & 11 (5, 15) \\ 
+			Quebec & 9 (5, 15) & 9 (3, 14) & 14 (7, 23) & 14 (6, 26) \\ 
+			Atlantic Canada & 10 (2, 16) & 10 (4, 19) & 16 (6, 24) & 16 (5, 29) \\ 
+			Northern Canada & 12 (5, 17) & 12 (6, 18) & 15 (10, 21) & 16 (9, 27) \\ 	
+			\hline
+			\textbf{20-Year} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Precipitation}			& 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 16 (12, 20) & 26 (20, 34) & 18 (13, 25) & 31 (21, 42) \\ 
+			British Columbia & 15 (10, 20) & 25 (18, 34) & 15 (9, 22) & 28 (15, 44) \\ 
+			Prairies & 14 (7, 19) & 21 (12, 31) & 11 (5, 16) & 19 (10, 29) \\ 
+			Ontario & 12 (3, 20) & 21 (12, 32) & 16 (9, 24) & 25 (16, 37) \\ 
+			Quebec & 17 (9, 22) & 27 (18, 36) & 22 (12, 34) & 34 (21, 49) \\ 
+			Atlantic Canada & 18 (12, 25) & 28 (16, 42) & 23 (13, 36) & 37 (21, 61) \\ 
+			Northern Canada & 19 (12, 24) & 32 (21, 41) & 22 (16, 30) & 39 (25, 54) \\ 	
+			\hline
+			\hline
+			\textbf{50-Year} & RCP 2.6 & & SSP1 2.6 &   \\
+			\textbf{Precipitation} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 11 (6, 16) & 10 (5, 15) & 13 (7, 19) & 13 (7, 22) \\ 
+			British Columbia & 10 (2, 18) & 10 (1, 20) & 9 (3, 18) & 9 (1, 21) \\ 
+			Prairies & 10 (3, 14) & 9 (3, 16) & 8 (0, 15) & 9 (3, 16) \\ 
+			Ontario & 10 (3, 17) & 9 (1, 17) & 10 (3, 18) & 11 (4, 16) \\ 
+			Quebec & 10 (4, 15) & 9 (3, 15) & 15 (5, 26) & 15 (6, 28) \\ 
+			Atlantic Canada & 10 (2, 16) & 11 (4, 19) & 17 (7, 27) & 18 (5, 32) \\ 
+			Northern Canada & 12 (5, 20) & 12 (6, 20) & 16 (10, 24) & 17 (8, 29) \\ 
+			\hline
+			\textbf{50-Year} & RCP 8.5 & & SSP5 8.5 &   \\
+			\textbf{Precipitation} & 2050s & 2080s & 2050s &2080s \\
+			\hline
+			Canada & 17 (12, 21) & 27 (20, 36) & 19 (14, 26) & 33 (22, 47) \\ 
+			British Columbia & 16 (8, 23) & 26 (16, 37) & 15 (8, 23) & 30 (16, 48) \\ 
+			Prairies & 15 (8, 23) & 23 (13, 36) & 12 (7, 17) & 21 (11, 33) \\ 
+			Ontario & 13 (3, 20) & 22 (11, 34) & 17 (7, 28) & 27 (16, 42) \\ 
+			Quebec & 17 (8, 23) & 28 (19, 40) & 24 (12, 40) & 37 (23, 56) \\ 
+			Atlantic Canada & 18 (10, 27) & 29 (16, 46) & 25 (14, 43) & 40 (24, 69) \\ 
+			Northern Canada & 20 (12, 25) & 32 (21, 41) & 22 (16, 31) & 40 (26, 58) \\ 
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+%Seasonal Precipitation
+\begin{table}[t]
+	\caption{\textbf{Seasonal Precipitation} Projected percent changes of winter and summer total precipitation for Canada and the sub-regions of Canada. Projections are calculated based on the time at which global average temperature anomalies of $1^o$C and $3^o$C are reached within each model. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:deg_seas_pr}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{Winter} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Precipitation} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\
+			\hline
+			Canada & 8 (4, 12) & 25 (17, 30) & 9 (5, 12) & 24 (20, 27) \\ 
+			British Columbia & 5 (-2, 12) & 15 (5, 24) & 4 (-2, 9) & 10 (4, 18) \\ 
+			Prairies & 6 (1, 11) & 20 (12, 30) & 7 (3, 12) & 21 (12, 29) \\ 
+			Ontario & 9 (4, 14) & 27 (17, 36) & 11 (4, 18) & 28 (20, 35) \\ 
+			Quebec & 10 (5, 14) & 32 (23, 39) & 13 (5, 19) & 34 (26, 41) \\ 
+			Atlantic Canada & 7 (3, 11) & 19 (12, 27) & 7 (1, 12) & 20 (15, 24) \\ 
+			Northern Canada & 13 (8, 19) & 40 (28, 52) & 13 (9, 19) & 41 (33, 53) \\ 
+			\hline
+			\textbf{Summer} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Precipitation} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\	
+			\hline
+			Canada & 4 (2, 6) & 8 (2, 13) & 3 (1, 6) & 6 (-2, 15) \\ 
+			British Columbia & 1 (-3, 6) & 0 (-8, 7) & -1 (-6, 5) & -1 (-12, 10) \\ 
+			Prairies & 2 (-5, 7) & 1 (-13, 15) & -2 (-6, 5) & -4 (-19, 11) \\ 
+			Ontario & 0 (-6, 5) & -1 (-15, 11) & 0 (-5, 5) & -2 (-14, 11) \\ 
+			Quebec & 4 (1, 7) & 7 (1, 15) & 5 (1, 7) & 8 (1, 14) \\ 
+			Atlantic Canada & 5 (1, 10) & 10 (5, 17) & 5 (3, 9) & 8 (2, 16) \\ 
+			Northern Canada & 6 (3, 10) & 17 (11, 24) & 7 (4, 12) & 17 (10, 24) \\ 
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+
+%Extreme Precipitation
+\begin{table}[t]
+	\caption{\textbf{Extreme Precipitation} Projected percent changes of 20-year and 50-year annual maximum one day precipitation amounts for Canada and the sub-regions of Canada. Projections are calculated based on the time at which global average temperature anomalies of $1^o$C and $3^o$C are reached within each model. Values displayed include the ensemble average, $10^{th}$ percentile and $90^{th}$ percentile.}\label{table:deg_ext_pr}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|cc|} 
+			\hline
+			\textbf{20-Year} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Precipitation} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\
+			\hline
+			Canada & 8 (5, 11) & 22 (17, 28) & 8 (5, 12) & 23 (19, 28) \\ 
+			British Columbia & 7 (2, 13) & 20 (14, 27) & 6 (1, 9) & 19 (13, 25) \\ 
+			Prairies & 7 (2, 12) & 18 (10, 29) & 5 (-1, 11) & 15 (6, 21) \\ 
+			Ontario & 6 (1, 13) & 17 (8, 23) & 7 (1, 13) & 19 (10, 28) \\ 
+			Quebec & 8 (5, 12) & 22 (14, 29) & 10 (6, 16) & 27 (20, 35) \\ 
+			Atlantic Canada & 9 (4, 12) & 22 (12, 30) & 11 (4, 18) & 28 (18, 37) \\ 
+			Northern Canada & 8 (4, 13) & 26 (17, 33) & 10 (6, 14) & 28 (23, 35) \\
+			\hline
+			\textbf{50-Year} & CMIP5 &  & CMIP6 &   \\
+			\textbf{Precipitation} & $1^o$C & $3^o$C & $1^o$C & $3^o$C \\	
+			\hline
+			Canada & 8 (5, 13) & 23 (17, 32) & 9 (5, 12) & 25 (20, 29) \\ 
+			British Columbia & 8 (0, 16) & 21 (15, 29) & 5 (0, 10) & 20 (12, 28) \\ 
+			Prairies & 9 (3, 14) & 20 (10, 33) & 5 (-2, 12) & 16 (6, 23) \\ 
+			Ontario & 7 (-1, 14) & 18 (7, 26) & 7 (-2, 14) & 20 (10, 28) \\ 
+			Quebec & 8 (4, 14) & 24 (15, 32) & 11 (6, 19) & 30 (20, 42) \\ 
+			Atlantic Canada & 9 (4, 14) & 23 (12, 32) & 12 (3, 21) & 30 (20, 42) \\ 
+			Northern Canada & 8 (3, 15) & 27 (16, 37) & 11 (6, 16) & 30 (23, 35) \\ 
+			\hline	
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+
+
+\end{appendices}
+
+\clearpage
+
+\bibliographystyle{spbasic}      % basic style, author-year citations
+\bibliography{./cmip6_report_refs}   % name your BibTeX data base
+
+\end{document}

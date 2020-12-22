@@ -1,0 +1,136 @@
+\documentclass[]{scrartcl}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{natbib}
+
+\usepackage{tabularx}
+ \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+%\lhead{\bfseries{PCIC}}
+\fancyhead[L]{
+   \includegraphics[width=0.25\textwidth]{./PCICLogoHorizontal}
+}
+%\rhead{\bfseries{UVIC}}
+\fancyhead[R]{
+	\includegraphics[width=0.11\textwidth]{./uvic_logo}
+}
+
+
+
+\fancyfoot[L]{\textcolor{blue}{Pacific Climate Impacts Consortium, University of Victoria\newline PO Box 1700 STN CSC, Victoria, BC V8W 2Y2 Canada\newline {\bfseries Tel:} (250) 721-6236 {\bfseries Fax:} (250) 721-7217 {\bfseries E-mail:} climate@uvic.ca}}
+
+\rfoot{\thepage}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+%opening
+\title{\includegraphics[width=0.85\textwidth]{./PCICLogoHorizontal}\vspace{50pt}~\\Summary of CMIP6 Global Climate Models}
+\author{}
+
+\begin{document}
+\date{} %remove date from title text
+\maketitle
+\thispagestyle{empty}
+%\begin{abstract}
+%Enclosed is a brief description and list documenting the CMIP6 global climate models recommended for use in downscaling future climate scenarios for Canada. 
+%\end{abstract}
+
+
+\section{Global Climate Model Selection}
+As part of Task 1 for the downscaling of climate change simulations for Canada, the Pacific Climate Impacts Consortium has identified 25 global climate model simulations. Simulations produced for the sixth Coupled Model Inter-comparison Project (CMIP6, \citealt{eyring_overview_2016}) have been obtained from the Earth System Grid Federation data distribution platform \citep{williams_earth_2009}. Models have been selected based on satisfying all of the completeness criteria outlined in the project proposal (Table \ref{table:select}). Among those criteria, climate change scenarios from three Shared Socioeconomic Pathways (SSP1-2.6, SSP2-4.5, and SSP5-8.5, \citealt{gidden_global_2019}) were recommended for use corresponding to those scenarios with similar radiative forcing from the previous generation of climate model simulations (CMIP5). 
+
+From each climate simulation the first realization (run) fulfilling the data completeness requirements has been acquired. For most models the first run is "r1i1p1f1" (denoting the run ``r'', initialization ``i'', physics ``p'', and forcing ``f'' numbers). In cases where the first run was missing or incomplete, simulations from the next available realization were obtained (e.g. r2i1p1f1 for KACE-1-0-G). Additionally, the French (CNRM-CERFACS), Japanese (University of Tokyo), and United Kingdom (Met Office) modelling centres employ later versions of the external forcing datasets (\citealt{voldoire_evaluation_2019}, \citealt{Hajima2020}) leading to distinct forcing numbers for those simulations. As indicated in the proposal to the Project Authority, 10 realizations of the CanESM5 model of the Canadian Centre for Climate Modelling and Analysis using the p2 physics version \citep{swart_canadian_2019} are included within the larger ensemble of models selected. 
+
+Since fewer than 30 CMIP6 models (excluding CanESM5) satisfying the necessary completeness criteria have been made available at this time, all identified simulations (Tables \ref{table:gcm1} and \ref{table:gcm2}) are to be included in downscaling procedure. No model screening or elimination has been performed at this stage.
+
+\renewcommand{\arraystretch}{1.5}%
+%Snow temp table
+\begin{table}[ht]
+	\caption{Completeness criteria for CMIP6 model selection}\label{table:select}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabular}{|c|c|} 
+			\hline
+			\textbf{Temporal Coverage} & 1950-2100 \\
+			\hline
+			\textbf{Variables} & Daily precipitation \\
+				 			   & Daily maximum temperature \\
+				 			   & Daily minimum temperature \\
+		  	\hline
+			\textbf{Scenarios} & Historical ALL \\
+							   & SSP1-2.6 \\
+							   & SSP2-4.5 \\
+							   & SSP5-8.5 \\
+			\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{List of Selected CMIP6 Simulations}
+
+
+%Snow temp table
+\begin{table}[ht]
+	\caption{List of CMIP6 globbal climate models selected for downscaling (Part 1)}\label{table:gcm1}
+	\begin{center}
+%		\begin{tabular}{|c|cc|}
+	\begin{tabularx}{\linewidth}{|L|cc|} 
+			\hline
+			\textbf{Institution} & \textbf{Model Name} & \textbf{Realizations}  \\
+			\hline
+			CSIRO (Australia)                     & ACCESS-ESM1-5 & r1i1p1f1   \\
+			CSIRO-ARCCSS (Australia) & ACCESS-CM2 & r1i1p1f1 \\
+		    Beijing Climate Center (China) & BCC-CSM2-MR & r1i1p1f1  \\
+		    Canadian Centre for Climate Modelling\newline and Analysis (Canada) & CanESM5 & r*i1p2f1 (1-10) \\
+			CNRM-CERFACS (France) & CNRM-CM6-1 & r1i1p1f2 \\  	
+			CNRM-CERFACS (France) & CNRM-ESM2-1 & r1i1p1f2 \\	  
+			EC-Earth-Consortium (Europe) & EC-Earth3 & r4i1p1f1 \\
+			EC-Earth-Consortium (Europe) & EC-Earth3-Veg & r1i1p1f1 \\	  
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+\begin{table}[t]
+	\caption{List of CMIP6 globbal climate models selected for downscaling (Part 2)}\label{table:gcm2}
+	\begin{center}
+		%		\begin{tabular}{|c|cc|}
+		\begin{tabularx}{\linewidth}{|L|cc|} 
+			\hline
+			\textbf{Institution} & \textbf{Model Name} & \textbf{Realizations}  \\
+			\hline
+	 
+			Institute of Atmospheric Physics (China) & FGOALS-g3 & r1i1p1f1 \\
+		    NOAA-Geophysical Fluid Dynamcs Laboratory (USA) & GFDL-ESM4 & r1i1p1f1 \\
+			Met Office Hadley Centre and \newline Natural Environment Research Council (UK) & HadGEM3-GC31-LL & r1i1p1f3 \\
+			Institute for Numerical Mathematics (Russia) & INM-CM4-8 & r1i1p1f1 \\
+			Institute for Numerical Mathematics (Russia) & INM-CM5-0 & r1i1p1f1 \\	
+			Institut Pierre-Simon Laplace (France) & IPSL-CM6A-LR & r1i1p1f1 \\
+			National Institute of Meteorological Sciences and Korea Meteorology Administration (Korea) & KACE-1-0-G & r2i1p1f1 \\ 
+		    Korea Institute of Ocean Science and Technology (Korea) & KIOST-ESM & r1i1p1f1 \\
+			University of Tokyo JAMSTEC, NIES, and AORI (Japan) & MIROC6 & r1i1p1f1 \\
+			University of Tokyo JAMSTEC, NIES, and AORI (Japan) & MIROC-ES2L & r1i1p1f2 \\   
+   		    Max Planck Institute for Meteorology (Germany) & MPI-ESM1-2-HR & r1i1p1f1 \\
+			Max Planck Institute for Meteorology (Germany) & MPI-ESM1-2-LR & r1i1p1f1 \\   	
+			Meteorological Research Institute (Japan) & MRI-ESM2-0 & r1i1p1f1 \\
+			Nanjing University of Information Science and Technology (China) & NESM3 & r1i1p1f1 \\
+			Norwegian Climate Center (Norway) & NorESM2-LM & r1i1p1f1 \\
+			Norwegian Climate Center (Norway) & NorESM2-MM & r1i1p1f1 \\			
+		    Met Office Hadley Centre and \newline Natural Environment Research Council (UK) & UKESM1-0-LL & r1i1p1f2 \\	  		 
+			\hline
+		\end{tabularx}
+	\end{center}
+\end{table}
+
+\clearpage
+
+\bibliographystyle{spbasic}      % basic style, author-year citations
+\bibliography{./cmip6_refs}   % name your BibTeX data base
+
+\end{document}
